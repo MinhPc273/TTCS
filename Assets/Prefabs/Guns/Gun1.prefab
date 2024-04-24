@@ -5118,6 +5118,7 @@ GameObject:
   - component: {fileID: 3459095170475895832}
   - component: {fileID: 3149864429507021609}
   - component: {fileID: 847775263646960983}
+  - component: {fileID: 855726526051936034}
   m_Layer: 6
   m_Name: Gun1
   m_TagString: Player
@@ -5133,14 +5134,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2801830012675079366}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.31454468, y: -0, z: -0, w: 0.9492427}
+  m_LocalRotation: {x: -0.31454748, y: 0, z: 0, w: 0.94924176}
   m_LocalPosition: {x: -0.46722654, y: 3.0096788, z: 4.0427012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3216481467289570123}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -36.667, y: 0, z: 0}
 --- !u!65 &3459095170475895832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5201,10 +5202,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c88e9da44e24d4f81758155b97dfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPos: {x: 0, y: 0, z: 0}
-  newPos: {x: 0, y: 0, z: 0}
-  PointSwap: {fileID: 0}
-  GunSwap: {fileID: 0}
+  gunDataBase: {fileID: 11400000, guid: 0ddf8ff94557b614f848c93e9d492091, type: 2}
+--- !u!114 &855726526051936034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801830012675079366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e278112042c4fab45b9aee38cc47a9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 0
+  CurentStatsGun:
+    _ATK: 0
+    _rangeATK: 0
+    _speedATK: 0
 --- !u!1 &3004861781235538416
 GameObject:
   m_ObjectHideFlags: 0

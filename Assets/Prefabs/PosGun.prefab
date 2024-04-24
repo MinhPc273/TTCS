@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1849198979852396911}
   - component: {fileID: 3741942035577052883}
   - component: {fileID: 8949791169940083678}
-  m_Layer: 0
+  - component: {fileID: 2615027094697651836}
+  m_Layer: 8
   m_Name: 4
   m_TagString: PosGun
   m_Icon: {fileID: 0}
@@ -52,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4, y: 0.25, z: 0.4}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &8949791169940083678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +68,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 0}
+  canShoot: 0
+  curPos: {x: 0, y: 0, z: 0}
+  PointSwap: {fileID: 0}
+--- !u!54 &2615027094697651836
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035989764508312967}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2057022731045591681
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +109,8 @@ GameObject:
   - component: {fileID: 6085438764315615247}
   - component: {fileID: 1514907498393009188}
   - component: {fileID: 2873809551738630820}
-  m_Layer: 0
+  - component: {fileID: 8982483833300792950}
+  m_Layer: 8
   m_Name: 3
   m_TagString: PosGun
   m_Icon: {fileID: 0}
@@ -119,8 +151,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4, y: 0.25, z: 0.4}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &2873809551738630820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +166,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 0}
+  canShoot: 0
+  curPos: {x: 0, y: 0, z: 0}
+  PointSwap: {fileID: 0}
+--- !u!54 &8982483833300792950
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057022731045591681}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3715683579373215100
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +207,8 @@ GameObject:
   - component: {fileID: 8130944691925125620}
   - component: {fileID: 1673918321225592190}
   - component: {fileID: 6945391262691761503}
-  m_Layer: 0
+  - component: {fileID: 5204703304871779674}
+  m_Layer: 8
   m_Name: 1
   m_TagString: PosGun
   m_Icon: {fileID: 0}
@@ -186,8 +249,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4, y: 0.25, z: 0.4}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &6945391262691761503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +264,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 0}
+  canShoot: 0
+  curPos: {x: 0, y: 0, z: 0}
+  PointSwap: {fileID: 0}
+--- !u!54 &5204703304871779674
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715683579373215100}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6826482247739166555
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +305,8 @@ GameObject:
   - component: {fileID: 6192960868101987357}
   - component: {fileID: 3589399554401661078}
   - component: {fileID: 5632879669938360859}
-  m_Layer: 0
+  - component: {fileID: 6701215533315716417}
+  m_Layer: 8
   m_Name: 2
   m_TagString: PosGun
   m_Icon: {fileID: 0}
@@ -253,8 +347,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4, y: 0.25, z: 0.4}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &5632879669938360859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +362,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 0}
+  canShoot: 0
+  curPos: {x: 0, y: 0, z: 0}
+  PointSwap: {fileID: 0}
+--- !u!54 &6701215533315716417
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826482247739166555}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7600641585921406522
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +403,8 @@ GameObject:
   - component: {fileID: 9069529035372750556}
   - component: {fileID: 5730090918220720504}
   - component: {fileID: 4139658691245791569}
-  m_Layer: 0
+  - component: {fileID: 2046614136416943050}
+  m_Layer: 8
   m_Name: 5
   m_TagString: PosGun
   m_Icon: {fileID: 0}
@@ -320,8 +445,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4, y: 0.25, z: 0.4}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &4139658691245791569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +460,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 0}
+  canShoot: 0
+  curPos: {x: 0, y: 0, z: 0}
+  PointSwap: {fileID: 0}
+--- !u!54 &2046614136416943050
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7600641585921406522}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8217603777154616072
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +501,8 @@ GameObject:
   - component: {fileID: 1966647823374350127}
   - component: {fileID: 3058999593255050337}
   - component: {fileID: 8138269480262131015}
-  m_Layer: 0
+  - component: {fileID: 5069738813761067118}
+  m_Layer: 8
   m_Name: 6
   m_TagString: PosGun
   m_Icon: {fileID: 0}
@@ -362,7 +518,7 @@ Transform:
   m_GameObject: {fileID: 8217603777154616072}
   serializedVersion: 2
   m_LocalRotation: {x: -0.31454468, y: -0, z: -0, w: 0.9492427}
-  m_LocalPosition: {x: 1.2, y: -0.48, z: -1.73}
+  m_LocalPosition: {x: 1.21, y: -0.48, z: -1.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -387,8 +543,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4, y: 0.25, z: 0.4}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &8138269480262131015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +558,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 0}
+  canShoot: 0
+  curPos: {x: 0, y: 0, z: 0}
+  PointSwap: {fileID: 0}
+--- !u!54 &5069738813761067118
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217603777154616072}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8337752267457003151
 GameObject:
   m_ObjectHideFlags: 0

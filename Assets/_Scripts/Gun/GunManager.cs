@@ -46,6 +46,7 @@ public class GunManager : MonoBehaviour
         }
         PointSpawn pointSpawn = listPointSpawn[indexPoint];
         Transform gunSpawn =  Instantiate(GunPrefab, pointSpawn.transform.position, pointSpawn.transform.localRotation);
+        gunSpawn.SetParent(pointSpawn.transform);
         pointSpawn.Gun = gunSpawn;
     }
 
