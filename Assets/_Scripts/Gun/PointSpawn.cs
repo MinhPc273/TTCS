@@ -10,6 +10,8 @@ public class PointSpawn : MonoBehaviour
     public Vector3 curPos;
     [SerializeField]private PointSpawn PointSwap;
 
+    public GunData GunData => Gun != null ? Gun.GetComponent<GunData>() : null;
+
     private void Start()
     {
         curPos = transform.position;
@@ -23,13 +25,19 @@ public class PointSpawn : MonoBehaviour
             Transform thisGun = this.Gun;
             if(PointSwap.Gun != null)
             {
+                if(this.GunData.Level == PointSwap.GunData.Level)
+                {
+                    Debug.Log("merge");
+                }
                 this.Gun = PointSwap.Gun;
-                this.Gun.position = this.curPos;
+                //this.Gun.position = this.curPos;
                 this.Gun.SetParent(this.transform);
+                this.Gun.localPosition = Vector3.zero;
 
                 PointSwap.Gun = thisGun;
-                PointSwap.Gun.position = PointSwap.curPos;
                 PointSwap.Gun.SetParent(PointSwap.transform);
+                PointSwap.Gun.localPosition = Vector3.zero;
+                //PointSwap.Gun.position = PointSwap.curPos;
             }
             else
             {
@@ -38,8 +46,9 @@ public class PointSpawn : MonoBehaviour
                 PointSwap.Gun = thisGun;
                 if(PointSwap.Gun != null)
                 {
-                    PointSwap.Gun.position = PointSwap.curPos;
+                    //PointSwap.Gun.position = PointSwap.curPos;
                     PointSwap.Gun.SetParent(PointSwap.transform);
+                    PointSwap.Gun.localPosition = Vector3.zero;
                 }
             }
         }

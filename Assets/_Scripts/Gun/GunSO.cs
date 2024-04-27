@@ -30,6 +30,6 @@ public class BaseStatsGun
         float ATK = _ATK * (1 + 0.2f * (level - 1));
         float rangeATK = _rangeATK * (1 + 0.2f * (level - 1)); 
         float speedATK = _speedATK * (1 + 0.2f * (level - 1));
-        return new BaseStatsGun(ATK, rangeATK, speedATK);   
+        return new BaseStatsGun(ATK, _rangeATK, _speedATK);   
     }
 }
