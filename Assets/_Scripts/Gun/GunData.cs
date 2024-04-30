@@ -7,22 +7,24 @@ public class GunData : GunAlbility
     public int Level;
     public BaseStatsGun CurentStatsGun;
 
-    private GunSO gunData;
+    //private GunSO gunData;
 
     //private Gun _gun;
 
     protected override void Initialization()
     {
         base.Initialization();
-        if(_gunData != null)
-        {
-            Level = _gunData._level;
-            CurentStatsGun = _gunData._baseStatsGuns.curentStatGun(Level);
+    }
 
-            //UI
-            _gunUI.setTxtLevel(Level);
-        }
-        
+    private void OnEnable()
+    {
+        this.setData(1);
+    }
+    public void setData(int l) 
+    {
+        Level = l;
+        CurentStatsGun = _gunData._baseStatsGuns.curentStatGun(l);
+        _gunUI.setTxtLevel(l);
     }
 
     // Update is called once per frame

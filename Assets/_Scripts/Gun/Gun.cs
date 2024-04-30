@@ -10,14 +10,4 @@ public class Gun : MonoBehaviour
 
     public GunSO GunData => gunDataBase;
     public GunUI GunUI => gunUI;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

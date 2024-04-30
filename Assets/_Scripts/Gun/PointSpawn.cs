@@ -28,28 +28,38 @@ public class PointSpawn : MonoBehaviour
                 if(this.GunData.Level == PointSwap.GunData.Level)
                 {
                     Debug.Log("merge");
-                }
-                this.Gun = PointSwap.Gun;
-                //this.Gun.position = this.curPos;
-                this.Gun.SetParent(this.transform);
-                this.Gun.localPosition = Vector3.zero;
+                    //this.Gun = null;
+                    ObjectPooler.EnqueueObject(this.Gun,GunManager.Instance.PoolParent, "Gun");
+                    ObjectPooler.EnqueueObject(PointSwap.Gun, GunManager.Instance.PoolParent, "Gun");
 
-                PointSwap.Gun = thisGun;
-                PointSwap.Gun.SetParent(PointSwap.transform);
-                PointSwap.Gun.localPosition = Vector3.zero;
-                //PointSwap.Gun.position = PointSwap.curPos;
+                    int nextLevel = this.GunData.Level + 1;
+                    this.Gun = null;
+
+                    PointSwap.Gun = GunManager.Instance.SpawnGunN();
+                    PointSwap.Gun.SetParent(PointSwap.transform);
+                    PointSwap.Gun.localPosition = Vector3.zero;
+                    PointSwap.Gun.gameObject.SetActive(true);
+                    PointSwap.Gun.GetComponent<GunData>().setData(nextLevel);
+                    
+                }
+                else
+                {
+                    this.Gun = PointSwap.Gun;
+                    this.Gun.SetParent(this.transform);
+                    this.Gun.localPosition = Vector3.zero;
+
+                    PointSwap.Gun = thisGun;
+                    PointSwap.Gun.SetParent(PointSwap.transform);
+                    PointSwap.Gun.localPosition = Vector3.zero;
+                }
             }
             else
             {
                 this.Gun = null;
 
                 PointSwap.Gun = thisGun;
-                if(PointSwap.Gun != null)
-                {
-                    //PointSwap.Gun.position = PointSwap.curPos;
-                    PointSwap.Gun.SetParent(PointSwap.transform);
-                    PointSwap.Gun.localPosition = Vector3.zero;
-                }
+                PointSwap.Gun.SetParent(PointSwap.transform);
+                PointSwap.Gun.localPosition = Vector3.zero;
             }
         }
         this.transform.position = curPos;

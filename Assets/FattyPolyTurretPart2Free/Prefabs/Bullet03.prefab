@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4590348899741804}
-  - component: {fileID: 4241357364119764626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,18 +33,6 @@ Transform:
   - {fileID: 4189322529613816}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!210 &4241357364119764626
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162392375372998}
-  m_Enabled: 1
-  m_SortingLayerID: 539000899
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
 --- !u!1 &1513605970140576
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +44,7 @@ GameObject:
   - component: {fileID: 4930405384114506}
   - component: {fileID: 33168223526963978}
   - component: {fileID: 23590828493064888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +127,7 @@ GameObject:
   - component: {fileID: 4189322529613816}
   - component: {fileID: 198418567044176822}
   - component: {fileID: 199971969928632302}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eff_Spark00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4919,7 +4906,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b36bca72328711e469f2614e3d52b7ed, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

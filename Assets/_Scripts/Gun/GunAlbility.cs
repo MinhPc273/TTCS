@@ -7,10 +7,11 @@ public class GunAlbility : MonoBehaviour
     protected Gun _gun;
     protected GunSO _gunData;
     protected GunUI _gunUI;
-    void Start()
+    void Awake()
     {
         Initialization();
     }
+
 
     protected virtual void Initialization()
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GunData
   m_EditorClassIdentifier: 
   _id: 0
-  _level: 2
+  _level: 1
   _baseStatsGuns:
     _ATK: 10
     _rangeATK: 20
