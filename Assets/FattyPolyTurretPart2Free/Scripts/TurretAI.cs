@@ -109,14 +109,15 @@ public class TurretAI : MonoBehaviour {
         Vector3 targetDir = currentTarget.transform.position - turreyHead.position;
         targetDir.y = 0;
         //turreyHead.forward = targetDir;
-        if (turretType == TurretType.Single)
+        turreyHead.transform.localRotation = Quaternion.RotateTowards(turreyHead.localRotation, Quaternion.LookRotation(targetDir), loockSpeed * Time.deltaTime);
+/*        if (turretType == TurretType.Single)
         {
             turreyHead.forward = targetDir;
         }
         else
         {
             turreyHead.transform.localRotation = Quaternion.RotateTowards(turreyHead.localRotation, Quaternion.LookRotation(targetDir), loockSpeed * Time.deltaTime);
-        }
+        }*/
     }
 
     private void ShootTrigger()
