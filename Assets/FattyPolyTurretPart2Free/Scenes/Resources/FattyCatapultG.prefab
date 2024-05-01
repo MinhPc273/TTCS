@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4250075439166090}
   - component: {fileID: 33555554215198114}
   - component: {fileID: 23125465273259464}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4289527946197634}
   - component: {fileID: 33250808695713068}
   - component: {fileID: 23005634172867232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CatapultG_Plate00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4686958327934562}
   - component: {fileID: 33371735688236438}
   - component: {fileID: 23300678285620072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CatapultG_Arm02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4219618078966594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4753845799557008}
   - component: {fileID: 95344992735708116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4462013283056094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4947991356735568}
   - component: {fileID: 114097961573486468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FattyCatapultG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 4836967583508922}
   - component: {fileID: 198250412561971794}
   - component: {fileID: 199297934335121258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eff_Spark00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5283,7 +5283,7 @@ GameObject:
   - component: {fileID: 4075985369524104}
   - component: {fileID: 198990557602601598}
   - component: {fileID: 199253916382638466}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireFx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10128,7 +10128,7 @@ GameObject:
   - component: {fileID: 4078340380332042}
   - component: {fileID: 33761968313605760}
   - component: {fileID: 23301025372166718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CatapultG_Stand00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10211,7 +10211,7 @@ GameObject:
   - component: {fileID: 4332950712711230}
   - component: {fileID: 33830156149803954}
   - component: {fileID: 23614165526286074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}

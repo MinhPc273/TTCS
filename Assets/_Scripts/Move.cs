@@ -10,6 +10,8 @@ public class Move : MonoBehaviour
     public Transform PathParent;
     private List<Vector3> ListPaths = new();
 
+    public bool isWASD;
+
     private int indexPath;
 
     private void Awake()
@@ -31,8 +33,14 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this.WASD_Movement();
-        this.MovePaths();
+        if(isWASD)
+        {
+            this.WASD_Movement();
+        }
+        else
+        {
+            this.MovePaths();
+        }
     }
 
     private void MovePaths()

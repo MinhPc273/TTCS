@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4056963476148404}
   - component: {fileID: 198721031210008992}
   - component: {fileID: 199204398648677078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireFx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4856,7 +4856,7 @@ GameObject:
   - component: {fileID: 4822440010067964}
   - component: {fileID: 33996731145891294}
   - component: {fileID: 23344717968301126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Barrel02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4940,7 +4940,7 @@ GameObject:
   - component: {fileID: 4395928933941270}
   - component: {fileID: 33577633121023816}
   - component: {fileID: 23234858027148570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Plate00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5022,7 +5022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4268993561700370}
   - component: {fileID: 114356927540799652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FattyMissileG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5081,7 +5081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535923597716192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5113,7 +5113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4372667440553698}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5145,7 +5145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4894621298927726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5180,7 +5180,7 @@ GameObject:
   - component: {fileID: 4243388043332222}
   - component: {fileID: 33814721527033306}
   - component: {fileID: 23303791835646378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Radar00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5261,7 +5261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4323257634195456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5299,7 +5299,7 @@ GameObject:
   - component: {fileID: 4632521427774942}
   - component: {fileID: 33209587740526146}
   - component: {fileID: 23466638906139088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Barrel02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5383,7 +5383,7 @@ GameObject:
   - component: {fileID: 4152411494966982}
   - component: {fileID: 33122768791970178}
   - component: {fileID: 23483558920925856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Stand00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5466,7 +5466,7 @@ GameObject:
   - component: {fileID: 4114427046038970}
   - component: {fileID: 33123251968205758}
   - component: {fileID: 23761408028391428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Cap00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5549,7 +5549,7 @@ GameObject:
   - component: {fileID: 4812241655112588}
   - component: {fileID: 33071836118768314}
   - component: {fileID: 23902084618042502}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissileG_Cap00 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5632,7 +5632,7 @@ GameObject:
   - component: {fileID: 4473088496714144}
   - component: {fileID: 198256108465736252}
   - component: {fileID: 199201684890205286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireFx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10477,7 +10477,7 @@ GameObject:
   - component: {fileID: 4926611440433742}
   - component: {fileID: 33956811513503616}
   - component: {fileID: 23695192614035076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}

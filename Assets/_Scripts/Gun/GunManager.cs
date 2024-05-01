@@ -50,7 +50,7 @@ public class GunManager : MonoBehaviour
         indexPoint = IndexPoint();
         if(indexPoint == -1)
         {
-            Debug.Log("Full");
+            //Debug.Log("Full");
             return;
         }
         PointSpawn pointSpawn = listPointSpawn[indexPoint];
