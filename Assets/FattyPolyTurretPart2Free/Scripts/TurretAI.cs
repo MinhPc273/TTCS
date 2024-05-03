@@ -158,7 +158,7 @@ public class TurretAI : MonoBehaviour {
         
         if (turreyHead.localRotation != Quaternion.Euler(randomRot))
         {
-            turreyHead.localRotation = Quaternion.RotateTowards(turreyHead.transform.localRotation, Quaternion.Euler(randomRot), loockSpeed * Time.deltaTime * 0.2f);
+            turreyHead.localRotation = Quaternion.RotateTowards(turreyHead.transform.localRotation, Quaternion.Euler(randomRot), loockSpeed * Time.deltaTime * 0.02f);
         }
         else
         {
