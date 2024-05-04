@@ -5013,7 +5013,7 @@ MonoBehaviour:
   attackDist: 1.52
   attackDamage: 10
   shootCoolDown: 1
-  loockSpeed: 100
+  loockSpeed: 1000
   randomRot: {x: 0, y: 0, z: 0}
   animator: {fileID: 6003939171565681630}
   turretType: 3
@@ -5167,6 +5167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e278112042c4fab45b9aee38cc47a9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   Level: 0
   CurentStatsGun:
     _ATK: 0

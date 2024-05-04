@@ -32,6 +32,7 @@ public static class ObjectPooler
     public static T EnqueueNewInstance<T>(T item, string key) where T : Component
     {
         T newInstance = Object.Instantiate(item);
+        newInstance.name = item.name;
         newInstance.gameObject.SetActive(false);
         newInstance.transform.position = Vector3.zero;
         poolDictinary[key].Enqueue(newInstance);
@@ -47,6 +48,7 @@ public static class ObjectPooler
         for(int i = 0; i < poolSize; i++)
         {
             T pooledInstance = Object.Instantiate(pooledItemPrefab, poolParent);
+            pooledInstance.name = pooledItemPrefab.name;
             pooledInstance.gameObject.SetActive(false);
             poolDictinary[dictionaryEntry].Enqueue((T)pooledInstance);
         }

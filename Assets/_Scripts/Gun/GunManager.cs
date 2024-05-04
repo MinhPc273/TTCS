@@ -8,7 +8,7 @@ public class GunManager : MonoBehaviour
 
     public static GunManager Instance;
 
-    [SerializeField] private Transform GunPrefab;
+    [SerializeField] private List<Transform> ListGunPrefab;
     [SerializeField] private Transform PointSpawnParent;
     public Transform PoolParent;
     [SerializeField] private List<PointSpawn> listPointSpawn = new();
@@ -36,7 +36,10 @@ public class GunManager : MonoBehaviour
 
     void SetUpPool()
     {
-        ObjectPooler.SetupPool(GunPrefab,PoolParent, 20, "Gun");
+        for(int i = 0; i < ListGunPrefab.Count; i++)
+        {
+            ObjectPooler.SetupPool(ListGunPrefab[i],PoolParent, 20, ListGunPrefab[i].name);
+        }
     }
 
     // Update is called once per frame
@@ -55,7 +58,10 @@ public class GunManager : MonoBehaviour
         }
         PointSpawn pointSpawn = listPointSpawn[indexPoint];
         //Transform gunSpawn =  Instantiate(GunPrefab, pointSpawn.transform.position, pointSpawn.transform.localRotation);
-        Transform gunSpawn = ObjectPooler.DequeueObject<Transform>("Gun");
+
+        Transform _gunSpawn = ListGunPrefab[(int)Random.Range(0, ListGunPrefab.Count)];
+
+        Transform gunSpawn = ObjectPooler.DequeueObject<Transform>(_gunSpawn.name);
         gunSpawn.gameObject.SetActive(true);
         gunSpawn.SetParent(pointSpawn.transform);
         gunSpawn.localPosition = Vector3.zero;
@@ -76,9 +82,9 @@ public class GunManager : MonoBehaviour
         return -1;
     }
 
-    public Transform SpawnGunN()
+    public Transform SpawnGunN(string key)
     {
         //Transform _gunSpawn = ObjectPooler.DequeueObject<Transform>("Gun");
-        return ObjectPooler.DequeueObject<Transform>("Gun");
+        return ObjectPooler.DequeueObject<Transform>(key);
     }
 }

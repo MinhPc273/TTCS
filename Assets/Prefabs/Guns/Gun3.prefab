@@ -168,7 +168,7 @@ MonoBehaviour:
   attackDist: 7.5
   attackDamage: 2
   shootCoolDown: 0.5
-  loockSpeed: 200
+  loockSpeed: 1000
   randomRot: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   turretType: 1
@@ -5720,7 +5720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c88e9da44e24d4f81758155b97dfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDataBase: {fileID: 11400000, guid: 0ddf8ff94557b614f848c93e9d492091, type: 2}
+  gunDataBase: {fileID: 11400000, guid: fcbafe2aa4e599e499979ee392e6594e, type: 2}
   gunUI: {fileID: 6834967986481650197}
 --- !u!114 &8039234801133809197
 MonoBehaviour:
@@ -5734,6 +5734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e278112042c4fab45b9aee38cc47a9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   Level: 0
   CurentStatsGun:
     _ATK: 0

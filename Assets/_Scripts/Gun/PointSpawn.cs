@@ -25,17 +25,17 @@ public class PointSpawn : MonoBehaviour
             Transform thisGun = this.Gun;
             if(PointSwap.Gun != null)
             {
-                if(this.GunData.Level == PointSwap.GunData.Level)
+                if(this.GunData.Level == PointSwap.GunData.Level && this.GunData.id == PointSwap.GunData.id)
                 {
                     Debug.Log("merge");
                     //this.Gun = null;
-                    ObjectPooler.EnqueueObject(this.Gun,GunManager.Instance.PoolParent, "Gun");
-                    ObjectPooler.EnqueueObject(PointSwap.Gun, GunManager.Instance.PoolParent, "Gun");
+                    ObjectPooler.EnqueueObject(this.Gun,GunManager.Instance.PoolParent, this.Gun.name);
+                    ObjectPooler.EnqueueObject(PointSwap.Gun, GunManager.Instance.PoolParent, PointSwap.Gun.name);
 
                     int nextLevel = this.GunData.Level + 1;
                     this.Gun = null;
 
-                    PointSwap.Gun = GunManager.Instance.SpawnGunN();
+                    PointSwap.Gun = GunManager.Instance.SpawnGunN(PointSwap.Gun.name);
                     PointSwap.Gun.SetParent(PointSwap.transform);
                     PointSwap.Gun.localPosition = Vector3.zero;
                     PointSwap.Gun.gameObject.SetActive(true);

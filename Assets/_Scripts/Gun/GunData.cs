@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunData : GunAlbility
 {
+    public int id;
     public int Level;
     public BaseStatsGun CurentStatsGun;
 
@@ -23,6 +24,7 @@ public class GunData : GunAlbility
     public void setData(int l) 
     {
         Level = l;
+        id = _gunData._id;
         CurentStatsGun = _gunData._baseStatsGuns.curentStatGun(l);
         _gunUI.setTxtLevel(l);
     }
