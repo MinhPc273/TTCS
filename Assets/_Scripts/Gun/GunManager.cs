@@ -19,6 +19,7 @@ public class GunManager : MonoBehaviour
         Instance = this;
         this.LoadPointSpawn();
         indexPoint = 0;
+        SetUpPool();
     }
 
     private void LoadPointSpawn()
@@ -27,11 +28,6 @@ public class GunManager : MonoBehaviour
         {
             listPointSpawn.Add(t.GetComponent<PointSpawn>());
         }
-    }
-
-    void Start()
-    {
-        SetUpPool();
     }
 
     void SetUpPool()
@@ -61,6 +57,7 @@ public class GunManager : MonoBehaviour
         gunSpawn.SetParent(pointSpawn.transform);
         gunSpawn.localPosition = Vector3.zero;
         pointSpawn.Gun = gunSpawn;
+        pointSpawn.SavePointData();
     }
 
     private int IndexPoint()
