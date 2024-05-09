@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour {
     public Transform target;
     public bool lockOn;
     //public bool track;
+
+    public float Atk;
+
     public float speed = 1;
     public float turnSpeed = 1;
     public bool catapult;
@@ -116,7 +119,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Enemy" && other.transform == target)
         {
             /*Vector3 dir = other.transform.position - transform.position;
             //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
@@ -124,6 +127,7 @@ public class Projectile : MonoBehaviour {
             knockBackPos.y = 1;
             other.transform.position = knockBackPos;*/
             Explosion(other.transform);
+            other.transform.parent.GetComponent<EnemyData>().GetDamage(Atk, type);
         }
 
         if(other.tag == "Plane" && type == TurretAI.TurretType.Catapult)

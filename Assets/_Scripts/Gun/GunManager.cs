@@ -52,7 +52,7 @@ public class GunManager : MonoBehaviour
 
         Transform _gunSpawn = ListGunPrefab[(int)Random.Range(0, ListGunPrefab.Count)];
 
-        Transform gunSpawn = ObjectPooler.DequeueObject<Transform>(_gunSpawn.name);
+        Transform gunSpawn = ObjectPooler.DequeueObject<Transform>(_gunSpawn.name,_gunSpawn);
         gunSpawn.gameObject.SetActive(true);
         gunSpawn.SetParent(pointSpawn.transform);
         gunSpawn.localPosition = Vector3.zero;

@@ -6,8 +6,11 @@ public class Gun : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GunSO gunDataBase;
+    //[SerializeField] GunData gunData;
     [SerializeField] GunUI gunUI;
 
-    public GunSO GunData => gunDataBase;
+    public GunSO GunDataBase => gunDataBase;
     public GunUI GunUI => gunUI;
+
+    //public GunData GunData => gunData;
 }

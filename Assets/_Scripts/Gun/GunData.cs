@@ -8,6 +8,8 @@ public class GunData : GunAlbility
     public int Level;
     public BaseStatsGun CurentStatsGun;
 
+    public TurretAI turretAI;
+
     //private GunSO gunData;
 
     //private Gun _gun;
@@ -24,14 +26,12 @@ public class GunData : GunAlbility
     public void setData(int l) 
     {
         Level = l;
-        id = _gunData._id;
-        CurentStatsGun = _gunData._baseStatsGuns.curentStatGun(l);
+        id = _gunDataBase._id;
+        CurentStatsGun = _gunDataBase._baseStatsGuns.curentStatGun(l);
         _gunUI.setTxtLevel(l);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        turretAI.attackDamage = CurentStatsGun._ATK;
+        turretAI.attackDist = CurentStatsGun._rangeATK;
+        turretAI.shootCoolDown = CurentStatsGun._speedATK;
     }
 }

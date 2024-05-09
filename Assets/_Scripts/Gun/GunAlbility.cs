@@ -5,8 +5,9 @@ using UnityEngine;
 public class GunAlbility : MonoBehaviour
 {
     protected Gun _gun;
-    protected GunSO _gunData;
+    protected GunSO _gunDataBase;
     protected GunUI _gunUI;
+    //protected GunData _gunData;
     void Awake()
     {
         Initialization();
@@ -18,14 +19,9 @@ public class GunAlbility : MonoBehaviour
         _gun = GetComponent<Gun>();
         if( _gun != null )
         {
-            _gunData = _gun.GunData;
+            _gunDataBase = _gun.GunDataBase;
             _gunUI = _gun.GunUI;
+            //_gunData = _gun.GunData;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
