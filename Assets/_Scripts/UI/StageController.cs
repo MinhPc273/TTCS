@@ -19,6 +19,7 @@ public class StageController : MonoBehaviour
     {
         Instance = this;
 
+        LevelCur = Prefs.Level;
         Level = LevelCur - 3;
         GetListLvStageUI();
     }
