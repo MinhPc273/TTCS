@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   stats:
-    HP: 100
+    HP: 1000
     Speed: 1
     Coin: 5
     CoinDel: 3

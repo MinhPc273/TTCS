@@ -184,6 +184,7 @@ public class TurretAI : MonoBehaviour {
             Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.localRotation);
             GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
             Projectile projectile = missleGo.GetComponent<Projectile>();
+            projectile.type = TurretType.Catapult;
             projectile.target = lockOnPos;
             projectile.Atk = attackDamage;
         }
@@ -195,6 +196,7 @@ public class TurretAI : MonoBehaviour {
                 GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
                 Projectile projectile = missleGo.GetComponent<Projectile>();
                 projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
+                projectile.type = TurretType.Dual;
                 projectile.Atk = attackDamage/2;
             }
             else
@@ -203,6 +205,7 @@ public class TurretAI : MonoBehaviour {
                 GameObject missleGo = Instantiate(bullet, muzzleSub.transform.position, muzzleSub.localRotation);
                 Projectile projectile = missleGo.GetComponent<Projectile>();
                 projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
+                projectile.type = TurretType.Dual;
                 projectile.Atk = attackDamage/2;
             }
 
@@ -214,6 +217,7 @@ public class TurretAI : MonoBehaviour {
             GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
             Projectile projectile = missleGo.GetComponent<Projectile>();
             projectile.target = currentTarget.transform;
+            projectile.type = TurretType.Single;
             projectile.Atk = attackDamage;
         }
     }

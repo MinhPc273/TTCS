@@ -13,7 +13,7 @@ public class HpEnemyUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("Destroy", 1f);
+        Invoke("Destroy", 0.8f);
     }
 
     public void setValue(float dame, TurretAI.TurretType type)
@@ -52,5 +52,6 @@ public class HpEnemyUI : MonoBehaviour
     private void Destroy()
     {
         ObjectPooler.EnqueueObject(this, this.name);
+        //this.gameObject.SetActive(false);
     }
 }

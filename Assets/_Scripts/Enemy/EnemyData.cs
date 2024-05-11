@@ -30,6 +30,7 @@ public class EnemyData : EnemyAlbility
     {
         CurHP -= ATk;
         HpEnemyUI hpEnemyUI = ObjectPooler.DequeueObject(HpEnemyUIPrefab.name, HpEnemyUIPrefab);
+        //HpEnemyUI hpEnemyUI = Instantiate(HpEnemyUIPrefab);
         hpEnemyUI.transform.position = HpEnemyTransform.position;
         hpEnemyUI.setValue(ATk, turretType);
         if(CurHP <= 0)

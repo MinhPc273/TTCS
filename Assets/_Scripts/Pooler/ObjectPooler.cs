@@ -12,7 +12,7 @@ public static class ObjectPooler
     //Put in Pool
     public static void EnqueueObject<T>(T item, Transform PoolParent, string name) where T : Component
     {
-        if(!item.gameObject.activeSelf) return;
+        //if(!item.gameObject.activeSelf) return;
 
         item.transform.SetParent(PoolParent);
         item.transform.position = Vector3.zero;
@@ -22,7 +22,7 @@ public static class ObjectPooler
 
     public static void EnqueueObject<T>(T item, string key) where T : Component
     {
-        if (!item.gameObject.activeSelf) return;
+        //if (!item.gameObject.activeSelf) return;
 
         //item.transform.SetParent(PoolParent);
         item.transform.position = Vector3.zero;
@@ -33,7 +33,6 @@ public static class ObjectPooler
     //Get Out Pool
     public static T DequeueObject<T>(string key,T pooledItemPrefab=null) where T : Component
     {
-        //return (T)poolDictinary[key].Dequeue();
         if (!poolDictinary.ContainsKey(key))
         {
             poolDictinary.Add(key, new Queue<Component>());
@@ -46,29 +45,15 @@ public static class ObjectPooler
             poolDictinary[key].Enqueue((T)pooledInstance);
         }
 
-        /*if (poolDictinary[key].TryDequeue(out var item))
-        {
-            item.gameObject.SetActive(true);
-            poolDictinary[key].Enqueue(item);
-            return (T)item;
-        }*/
         if (poolDictinary[key].TryDequeue(out var item))
         {
-            /*int index = poolDictinary[key].Count - 1;
-            var item = poolDictinary[(key)][index];
-            poolDictinary[(key)].RemoveAt(index);*/
+            item.gameObject.SetActive(true);
             return (T)item;
-
         }
 
         return (T)EnqueueNewInstance(poolLookup[key], key);
     }
 
-/*    public static T NewPoolLookUp<T>(string key)
-    {
-
-    }
-*/
     public static T EnqueueNewInstance<T>(T item, string key) where T : Component
     {
         T newInstance = Object.Instantiate(item);

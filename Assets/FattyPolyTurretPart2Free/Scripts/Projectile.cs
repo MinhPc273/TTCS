@@ -119,7 +119,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" && other.transform == target)
+        if (other.tag == "Enemy" && other.transform == target && type != TurretAI.TurretType.Catapult)
         {
             /*Vector3 dir = other.transform.position - transform.position;
             //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
