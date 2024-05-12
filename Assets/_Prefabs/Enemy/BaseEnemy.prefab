@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 124209795151436650}
   - component: {fileID: 5483554486059783136}
   m_Layer: 6
-  m_Name: Enemy_1
+  m_Name: BaseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,8 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f85d1571d996a34abb4e573ba1de537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDataBase: {fileID: 11400000, guid: 02267953a28a05642b29dfcefd7b81b3, type: 2}
+  enemyDataBase: {fileID: 11400000, guid: e0eeada5a93b08b498bda99516ad8d9a, type: 2}
   enemyAnimController: {fileID: 5483554486059783136}
+  sortingLayer: {fileID: 5030684693398046660}
 --- !u!114 &7721571496520330941
 MonoBehaviour:
   m_ObjectHideFlags: 0

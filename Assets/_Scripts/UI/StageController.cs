@@ -1,32 +1,84 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StageController : MonoBehaviour
 {
-    public static StageController Instance;
 
     [SerializeField] Transform StageParent;
 
     [SerializeField] List<LvStageUI> ListLvStageUI;
 
-    public int LevelCur;
     public float scaleLv;
 
+    private int curLevel;
     private int Level;
+
+    private Vector3 vector3;
+    private int Count;
 
     private void Awake()
     {
-        Instance = this;
-
-        LevelCur = Prefs.Level;
-        Level = LevelCur - 3;
         GetListLvStageUI();
+        curLevel = Prefs.Level;
+        Level = curLevel - 3;
+        Count = ListLvStageUI.Count;
     }
 
     private void Start()
     {
         SetValueListLvStageUI();
+    }
+
+    public void Pre()
+    {
+        curLevel = Prefs.Level;
+        vector3 = ListLvStageUI[0].transform.position;
+        for(int i = 0; i < Count - 1; i++)
+        {
+            ListLvStageUI[i].transform.DOMove(ListLvStageUI[i + 1].transform.position, 0.5f);
+        }
+        ListLvStageUI[Count - 1].transform.position = vector3;
+        ListLvStageUI[Count - 1].SetValue(curLevel - 3);
+
+        for (int i = 0; i < Count - 1; i--)
+        {
+            LvStageUI tmp = ListLvStageUI[i];
+            ListLvStageUI[i] = ListLvStageUI[i + 1];
+            ListLvStageUI[i + 1] = tmp;
+        }
+
+        for (int i = Count - 1; i > 0; i--)
+        {
+            LvStageUI tmp = ListLvStageUI[i];
+            ListLvStageUI[i] = ListLvStageUI[i - 1];
+            ListLvStageUI[i - 1] = tmp;
+        }
+
+        LoadListLvStageUI();
+    }
+
+    public void Next()
+    {
+        curLevel = Prefs.Level;
+        vector3 = ListLvStageUI[Count - 1].transform.position;
+        for (int i = Count - 1; i > 0; i--)
+        {
+            Debug.Log(i);
+            ListLvStageUI[i].transform.DOMove(ListLvStageUI[i-1].transform.position, 0.5f);
+        }
+        ListLvStageUI[0].transform.position = vector3;
+        ListLvStageUI[0].SetValue(curLevel + 3);
+
+        for (int i = 0; i < Count - 1; i++)
+        {
+            LvStageUI tmp = ListLvStageUI[i];
+            ListLvStageUI[i] = ListLvStageUI[i + 1];
+            ListLvStageUI[i + 1] = tmp;
+        }
+
+        LoadListLvStageUI();
     }
 
     private void GetListLvStageUI()
@@ -43,5 +95,18 @@ public class StageController : MonoBehaviour
         {
             t.SetValue(Level++);
         }
+    }
+
+    private void LoadListLvStageUI()
+    {
+        foreach (LvStageUI t in ListLvStageUI)
+        {
+            t.LoadUI();
+        }
+    }
+
+    private void Sort()
+    {
+
     }
 }

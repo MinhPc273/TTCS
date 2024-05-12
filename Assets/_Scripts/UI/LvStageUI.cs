@@ -10,16 +10,26 @@ public class LvStageUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtLevel;
     [SerializeField] List<GameObject> ListImg;
 
-    public void SetValue(int Level)
+    public float scaleLv;
+
+    private int _level;
+    public void LoadUI()
     {
-        txtLevel.text = "" + Level;
-        setImg(Level);
-        setScale(Level);
+        setImg();
+        setScale();
     }
 
-    private void setImg(int Level)
+    public void SetValue(int Level)
     {
-        if(Level < 1)
+        _level = Level;
+        txtLevel.text = "" + Level;
+        setImg();
+        setScale();
+    }
+
+    private void setImg()
+    {
+        if(_level < 1)
         {
             foreach(GameObject img in ListImg)
             {
@@ -27,7 +37,7 @@ public class LvStageUI : MonoBehaviour
             }
             return;
         }
-        if(Level % 10 == 0)
+        if(_level % 10 == 0)
         {
             ListImg[0].SetActive(false);
             ListImg[1].SetActive(true);
@@ -39,11 +49,11 @@ public class LvStageUI : MonoBehaviour
         }
     }
 
-    public void setScale(int Level)
+    public void setScale()
     {
-        if(Level == StageController.Instance.LevelCur)
+        if(_level == Prefs.Level)
         {
-            this.transform.DOScale(Vector3.one * StageController.Instance.scaleLv, 0.5f);
+            this.transform.DOScale(Vector3.one * scaleLv, 0.5f);
         }
         else
         {

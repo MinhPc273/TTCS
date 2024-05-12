@@ -25,15 +25,18 @@ public class Move : EnemyAlbility
             //Debug.Log(t.name);
             ListPaths.Add(t.position);
         }
-        this.transform.position = ListPaths[0];
-        indexPath = 1;
-        Speed = _enemyData.stats.Speed;
-        
     }
 
     void Start()
     {
         Parent = this.transform.parent;
+    }
+
+    private void OnEnable()
+    {
+        this.transform.position = ListPaths[0];
+        indexPath = 1;
+        Speed = _enemyData.stats.Speed;
         _enemyAnimController.PlayAnim(State.Run);
     }
 

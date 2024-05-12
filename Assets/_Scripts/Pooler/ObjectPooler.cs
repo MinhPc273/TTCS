@@ -31,7 +31,7 @@ public static class ObjectPooler
     }
 
     //Get Out Pool
-    public static T DequeueObject<T>(string key,T pooledItemPrefab=null) where T : Component
+    public static T DequeueObject<T>(string key,T pooledItemPrefab=null, Transform Parent = null) where T : Component
     {
         if (!poolDictinary.ContainsKey(key))
         {
@@ -39,7 +39,7 @@ public static class ObjectPooler
 
             poolLookup.Add(key, pooledItemPrefab);
 
-            T pooledInstance = Object.Instantiate(pooledItemPrefab);
+            T pooledInstance = Object.Instantiate(pooledItemPrefab, Parent);
             pooledInstance.name = pooledItemPrefab.name;
             pooledInstance.gameObject.SetActive(true);
             poolDictinary[key].Enqueue((T)pooledInstance);
@@ -53,8 +53,7 @@ public static class ObjectPooler
 
         return (T)EnqueueNewInstance(poolLookup[key], key);
     }
-
-    public static T EnqueueNewInstance<T>(T item, string key) where T : Component
+    private static T EnqueueNewInstance<T>(T item, string key) where T : Component
     {
         T newInstance = Object.Instantiate(item);
         newInstance.name = item.name;

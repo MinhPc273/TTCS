@@ -10,13 +10,44 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GunManager gunManager;
 
+    [SerializeField] WaveManager waveManager;
+
+    [SerializeField] GUIManager gui;
+
     private void Awake()
     {
         Instance = this;
     }
 
+    public void Start()
+    {
+        NewWave();
+    }
+
     public void SpawnGun()
     {
         gunManager.SpawnGun();
+    }
+    
+    public void NewWave()
+    {
+        waveManager.StartWave();
+    }
+
+    public void Win()
+    {
+        Prefs.Level++;
+        this.NewWave();
+        gui.NextLevelUI();
+    }
+
+    public void Lose()
+    {
+        if(Prefs.Level % 10 != 1)
+        {
+            Prefs.Level--;
+        }
+        this.NewWave();
+        gui.PrevLevelUI();
     }
 }

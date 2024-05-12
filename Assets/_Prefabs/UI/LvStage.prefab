@@ -264,6 +264,7 @@ MonoBehaviour:
   ListImg:
   - {fileID: 557278158161716008}
   - {fileID: 8420992061550732886}
+  scaleLv: 1.25
 --- !u!1 &8420992061550732886
 GameObject:
   m_ObjectHideFlags: 0

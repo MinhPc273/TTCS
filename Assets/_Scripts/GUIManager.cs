@@ -12,6 +12,8 @@ public class GUIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtCoin;
     [SerializeField] TextMeshProUGUI txtCoinRequired;
 
+    [SerializeField] StageController stageController;
+
     private void Awake()
     {
         this.setUI();
@@ -33,5 +35,15 @@ public class GUIManager : MonoBehaviour
     public void TapButton()
     {
         GameManager.Instance.SpawnGun();
+    }
+
+    public void NextLevelUI()
+    {
+        stageController.Next();
+    }
+
+    public void PrevLevelUI()
+    {
+        stageController.Pre();
     }
 }

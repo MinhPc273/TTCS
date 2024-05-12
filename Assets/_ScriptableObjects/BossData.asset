@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b4d8292b5884ff45aa2f8af2246a12e, type: 3}
-  m_Name: Red
+  m_Script: {fileID: 11500000, guid: 187a2276a0384184c9feefee9e299a30, type: 3}
+  m_Name: BossData
   m_EditorClassIdentifier: 
-  _id: 0
-  _level: 1
-  _baseStatsGuns:
-    _ATK: 50
-    _rangeATK: 2
-    _speedATK: 0.2
+  id: 1
+  stats:
+    HP: 5000
+    Speed: 1
+    Coin: 5
+    CoinDel: 3
+  isBoss: 1

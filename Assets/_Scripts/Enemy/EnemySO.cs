@@ -8,6 +8,7 @@ public class EnemySO : ScriptableObject
 {
     public int id;
     public BaseEnemyStats stats;
+    public bool isBoss;
 }
 
 [Serializable]
@@ -29,6 +30,12 @@ public class BaseEnemyStats
     public BaseEnemyStats getValueByLevel(int Level)
     {
         float hp = this.HP * (1 + 0.25f * (Level - 1));
+        return new BaseEnemyStats(hp, this.Speed, this.Coin, this.CoinDel);
+    }
+
+    public BaseEnemyStats getValueBossByLevel(int Level)
+    {
+        float hp = this.HP * (1 + 0.25f * (Level - 1)) * 2;
         return new BaseEnemyStats(hp, this.Speed, this.Coin, this.CoinDel);
     }
 }
