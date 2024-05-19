@@ -57,7 +57,7 @@ public class TurretAI : MonoBehaviour {
             FollowTarget();
 
             float currentTargetDist = Vector3.Distance(transform.position, currentTarget.transform.position);
-            if (currentTargetDist > attackDist || currentTarget.transform.parent.GetComponent<EnemyData>().IsDead)
+            if (currentTargetDist > attackDist || currentTarget.transform.parent.GetComponent<EnemyData>().IsDead || !currentTarget.gameObject.activeInHierarchy)
             {
                 currentTarget = null;
             }
@@ -101,6 +101,7 @@ public class TurretAI : MonoBehaviour {
 
     private void ChackForTarget()
     {
+        if (currentTarget != null) return;
         Collider[] colls = Physics.OverlapSphere(transform.position, attackDist);
         float distAway = Mathf.Infinity;
 

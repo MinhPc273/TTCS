@@ -33,11 +33,6 @@ public class Projectile : MonoBehaviour {
 
         if (type == TurretAI.TurretType.Single) return;
 
-        if (!target.gameObject.activeSelf)
-        {
-            Destroy(gameObject);
-        }
-
         if (type == TurretAI.TurretType.Catapult)
         {
             if (lockOn)
@@ -48,6 +43,10 @@ public class Projectile : MonoBehaviour {
             }
         }else if(type == TurretAI.TurretType.Dual)
         {
+            if (!target.gameObject.activeInHierarchy)
+            {
+                Destroy(gameObject);
+            }
             Vector3 dir = target.position - transform.position;
             //float distThisFrame = speed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(-transform.forward, dir, Time.deltaTime * turnSpeed, 0.0f);
