@@ -6,7 +6,8 @@ public class EnemyAlbility : MonoBehaviour
 {
     protected Enemy _enemy;
     protected EnemySO _enemyData;
-    protected EnemyAnimController _enemyAnimController;
+    protected AnimController _enemyAnimController;
+    protected Move _move;
     void Awake()
     {
         Initialization();
@@ -19,6 +20,7 @@ public class EnemyAlbility : MonoBehaviour
         {
             _enemyData = _enemy.EnemyDataBase;
             _enemyAnimController = _enemy.EnemyAnimController;
+            _move = this.GetComponent<Move>();
         }
     }
 

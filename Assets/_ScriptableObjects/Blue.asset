@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Blue
   m_EditorClassIdentifier: 
   _id: 1
+  Icon: {fileID: 21300000, guid: 6a37ae25d745c764db7f8182bff8c0f3, type: 3}
   _level: 1
   _baseStatsGuns:
-    _ATK: 8
-    _rangeATK: 1.5
-    _speedATK: 0.4
+    _ATK: 10
+    _rangeATK: 1.7
+    _speedATK: 0.75

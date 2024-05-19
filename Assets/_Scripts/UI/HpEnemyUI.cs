@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,7 +14,7 @@ public class HpEnemyUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("Destroy", 0.8f);
+        Invoke("Destroy", 0.5f);
     }
 
     public void setValue(float dame, TurretAI.TurretType type)
@@ -36,6 +37,7 @@ public class HpEnemyUI : MonoBehaviour
 
     private string FormatValue(float dame)
     {
+        dame = (float)Math.Round(dame, 1);
         if(dame < 1000)
         {
             return dame.ToString();

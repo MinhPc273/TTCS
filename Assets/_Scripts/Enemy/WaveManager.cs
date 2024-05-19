@@ -15,36 +15,30 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] float timeSawn;
 
-    [SerializeField] Transform EnemyParent;
+    [SerializeField] Transform enemyParent;
+
+    public Transform EnemyParent => enemyParent;
 
     private int index;
 
     private int Level;
 
     private int enemyExits;
-    private int bossExits;
 
 
     private void Awake()
     {
         Instance = this;
 
-        ObjectPooler.SetupPool(EnemyPrefab, EnemyParent, AmountEnemyInWave, EnemyPrefab.name);
+        ObjectPooler.SetupPool(EnemyPrefab, enemyParent, AmountEnemyInWave, EnemyPrefab.name);
     }
 
-    private void Start()
-    {
-        //StartWave();
-    }
-
-    public void StartWave()
+    public IEnumerator StartWave(float timeDelay)
     {
         index = 0;
-
         enemyExits = AmountEnemyInWave;
-        bossExits = 1;
-
         Level = Prefs.Level;
+        yield return new WaitForSeconds(timeDelay);
         if(Level % 10 == 0)
         {
             StartCoroutine(EnableBoss());
@@ -53,14 +47,15 @@ public class WaveManager : MonoBehaviour
         {
             StartCoroutine(EnableEnemy());
         }
+        yield return null;
     }
 
     IEnumerator EnableEnemy()
     {
-        Enemy enemy = ObjectPooler.DequeueObject<Enemy>(EnemyPrefab.name, EnemyPrefab, EnemyParent);
+        Enemy enemy = ObjectPooler.DequeueObject<Enemy>(EnemyPrefab.name, EnemyPrefab, enemyParent);
         enemy.EnemyDataBase.stats.getValueByLevel(Level);
         enemy.sortingLayer.sortingOrder = -index;
-        yield return new WaitForSecondsRealtime(timeSawn);
+        yield return new WaitForSeconds(timeSawn);
         if(++index == AmountEnemyInWave)
         {
             yield break;
@@ -74,7 +69,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator EnableBoss()
     {
         Enemy WillBoss = getBoss();
-        Enemy boss = ObjectPooler.DequeueObject<Enemy>(WillBoss.name, WillBoss, EnemyParent);
+        Enemy boss = ObjectPooler.DequeueObject<Enemy>(WillBoss.name, WillBoss, enemyParent);
         boss.EnemyDataBase.stats.getValueBossByLevel(Level);
         Debug.Log("Boss");
         yield break;

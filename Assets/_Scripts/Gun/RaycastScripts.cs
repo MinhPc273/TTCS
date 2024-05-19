@@ -71,7 +71,7 @@ public class RaycastScripts : MonoBehaviour
             if (RayCastPos() != null)
             {
                 PosSelected = RayCastPos();
-                //GunSelected.GetComponent<GunController>().StartSelected();
+                PosSelected.GetComponent<PointSpawn>().StartSelected();
                 canMove = true;
             }
         }

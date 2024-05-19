@@ -64,6 +64,58 @@ PrefabInstance:
       propertyPath: slow_Run._Clip
       value: 
       objectReference: {fileID: 7400000, guid: 2151de9f0fd83114ea515f047a220ebd, type: 2}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[0].state
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[1].state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[2].state
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[0].clip._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 2151de9f0fd83114ea515f047a220ebd, type: 2}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[1].clip._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 56c68411e5768aa4eb43718fc8571faf, type: 2}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[2].clip._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 56c68411e5768aa4eb43718fc8571faf, type: 2}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[0].clip._Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[1].clip._Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[2].clip._Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[0].clip._FadeDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[1].clip._FadeDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981071280124111695, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: clipAnims.Array.data[2].clip._FadeDuration
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6936687505882645760, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

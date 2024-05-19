@@ -17,25 +17,23 @@ public class BaseEnemyStats
     public float HP;
     public float Speed;
     public float Coin;
-    public float CoinDel;
 
-    public BaseEnemyStats(float hP, float speed, float coin, float coinDel)
+    public BaseEnemyStats(float hP, float speed, float coin)
     {
         HP = hP;
         Speed = speed;
         Coin = coin;
-        CoinDel = coinDel;
     }
 
     public BaseEnemyStats getValueByLevel(int Level)
     {
-        float hp = this.HP * (1 + 0.25f * (Level - 1));
-        return new BaseEnemyStats(hp, this.Speed, this.Coin, this.CoinDel);
+        float hp = this.HP * Mathf.Pow(1.2f, Level -1);
+        return new BaseEnemyStats(hp, this.Speed, this.Coin);
     }
 
     public BaseEnemyStats getValueBossByLevel(int Level)
     {
-        float hp = this.HP * (1 + 0.25f * (Level - 1)) * 2;
-        return new BaseEnemyStats(hp, this.Speed, this.Coin, this.CoinDel);
+        float hp = this.HP * Mathf.Pow(1.8f, Level - 1);
+        return new BaseEnemyStats(hp, this.Speed, this.Coin);
     }
 }

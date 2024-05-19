@@ -7,6 +7,7 @@ using UnityEngine;
 public class GunSO : ScriptableObject
 {
     public int _id;
+    public Sprite Icon;
     public int _level;
     public BaseStatsGun _baseStatsGuns;
 }
@@ -27,7 +28,7 @@ public class BaseStatsGun
 
     public BaseStatsGun curentStatGun(int level)
     {
-        float ATK = _ATK * (1 + 0.2f * (level - 1));
+        float ATK = _ATK * Mathf.Pow(1.75f, level - 1);
         return new BaseStatsGun(ATK, _rangeATK, _speedATK);   
     }
 }

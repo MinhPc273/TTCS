@@ -20,6 +20,9 @@ public class TurretAI : MonoBehaviour {
     public float shootCoolDown;
     private float timer;
     public float loockSpeed;
+    public bool canFire;
+
+    [SerializeField] GameObject Quad;
 
     //public Quaternion randomRot;
     public Vector3 randomRot;
@@ -36,11 +39,9 @@ public class TurretAI : MonoBehaviour {
 
     private Transform lockOnPos;
 
-    //public TurretShoot_Base shotScript;
 
     void Start () {
-        InvokeRepeating("ChackForTarget", 0, 0.5f);
-        //shotScript = GetComponent<TurretShoot_Base>();
+        InvokeRepeating(nameof(ChackForTarget), 0, 0.5f);
 
         if (transform.GetChild(0).GetComponent<Animator>())
         {
@@ -51,7 +52,7 @@ public class TurretAI : MonoBehaviour {
     }
 	
 	void Update () {
-        if (currentTarget != null)
+        if (currentTarget != null && canFire)
         {
             FollowTarget();
 
@@ -69,7 +70,7 @@ public class TurretAI : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer >= shootCoolDown)
         {
-            if (currentTarget != null)
+            if (currentTarget != null && canFire)
             {
                 timer = 0;
                 
@@ -85,6 +86,18 @@ public class TurretAI : MonoBehaviour {
             }
         }
 	}
+
+    public void Selected()
+    {
+        canFire = false;
+        Quad.SetActive(true);
+    }
+
+    public void EndSlected(bool _canFire)
+    {
+        canFire = _canFire;
+        Quad.SetActive(false);
+    }
 
     private void ChackForTarget()
     {
@@ -109,16 +122,8 @@ public class TurretAI : MonoBehaviour {
     {
         Vector3 targetDir = currentTarget.transform.position - turreyHead.position;
         targetDir.y = 0;
-        //turreyHead.forward = targetDir;
-        turreyHead.transform.localRotation = Quaternion.RotateTowards(turreyHead.localRotation, Quaternion.LookRotation(targetDir), loockSpeed * Time.deltaTime);
-/*        if (turretType == TurretType.Single)
-        {
-            turreyHead.forward = targetDir;
-        }
-        else
-        {
-            turreyHead.transform.localRotation = Quaternion.RotateTowards(turreyHead.localRotation, Quaternion.LookRotation(targetDir), loockSpeed * Time.deltaTime);
-        }*/
+        turreyHead.transform.localRotation = Quaternion.RotateTowards(turreyHead.localRotation, Quaternion.LookRotation(targetDir), 
+                                                                        loockSpeed * Time.deltaTime);
     }
 
     private void ShootTrigger()
@@ -159,7 +164,8 @@ public class TurretAI : MonoBehaviour {
         
         if (turreyHead.localRotation != Quaternion.Euler(randomRot))
         {
-            turreyHead.localRotation = Quaternion.RotateTowards(turreyHead.transform.localRotation, Quaternion.Euler(randomRot), loockSpeed * Time.deltaTime * 0.02f);
+            turreyHead.localRotation = Quaternion.RotateTowards(turreyHead.transform.localRotation, Quaternion.Euler(randomRot), 
+                                                                loockSpeed * Time.deltaTime * 0.02f);
         }
         else
         {
@@ -213,12 +219,10 @@ public class TurretAI : MonoBehaviour {
         }
         else
         {
-            Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.localRotation);
-            GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
-            Projectile projectile = missleGo.GetComponent<Projectile>();
-            projectile.target = currentTarget.transform;
+            Projectile projectile = bullet.GetComponent<Projectile>();
             projectile.type = TurretType.Single;
             projectile.Atk = attackDamage;
+            bullet.SetActive(true);
         }
     }
 }

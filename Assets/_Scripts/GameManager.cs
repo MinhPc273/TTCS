@@ -14,14 +14,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GUIManager gui;
 
+    private int indexLose;
+
     private void Awake()
     {
         Instance = this;
-    }
-
-    public void Start()
-    {
-        NewWave();
+        indexLose = 0;
     }
 
     public void SpawnGun()
@@ -29,25 +27,27 @@ public class GameManager : MonoBehaviour
         gunManager.SpawnGun();
     }
     
-    public void NewWave()
+    public void NewWave(float timeDelay)
     {
-        waveManager.StartWave();
+        StartCoroutine(waveManager.StartWave(timeDelay));
     }
 
     public void Win()
     {
         Prefs.Level++;
-        this.NewWave();
+        indexLose = 0;
+        gunManager.checkUnlock();
         gui.NextLevelUI();
     }
 
     public void Lose()
     {
-        if(Prefs.Level % 10 != 1)
+        indexLose++;
+        if(Prefs.Level % 10 != 1 && indexLose >= 2)
         {
             Prefs.Level--;
+            indexLose = 0;
+            gui.PrevLevelUI();
         }
-        this.NewWave();
-        gui.PrevLevelUI();
     }
 }

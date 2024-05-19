@@ -6,10 +6,10 @@ using UnityEngine.Rendering;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] EnemySO enemyDataBase;
-    [SerializeField] EnemyAnimController enemyAnimController;
+    [SerializeField] AnimController enemyAnimController;
     public SortingGroup sortingLayer;
 
     public EnemySO EnemyDataBase => enemyDataBase;
-    public EnemyAnimController EnemyAnimController => enemyAnimController;
+    public AnimController EnemyAnimController => enemyAnimController;
 
 }

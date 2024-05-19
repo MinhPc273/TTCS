@@ -5441,10 +5441,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   turreyHead: {fileID: 7955434280731529234}
-  attackDist: 2
+  attackDist: 2.5
   attackDamage: 20
   shootCoolDown: 0.2
   loockSpeed: 1000
+  canFire: 0
+  Quad: {fileID: 8595415830830003450}
   randomRot: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   turretType: 2
@@ -5955,7 +5957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4730989804936486002
 Transform:
   m_ObjectHideFlags: 0
@@ -5966,7 +5968,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalScale: {x: 15.5, y: 15.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 449915238681775000}

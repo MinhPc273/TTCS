@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Red
   m_EditorClassIdentifier: 
   _id: 0
+  Icon: {fileID: 21300000, guid: 9613a92136352a945a4b6f133df693c5, type: 3}
   _level: 1
   _baseStatsGuns:
     _ATK: 50
-    _rangeATK: 2
-    _speedATK: 0.2
+    _rangeATK: 2.5
+    _speedATK: 0.3

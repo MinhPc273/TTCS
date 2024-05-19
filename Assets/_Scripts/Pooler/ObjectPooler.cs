@@ -42,7 +42,9 @@ public static class ObjectPooler
             T pooledInstance = Object.Instantiate(pooledItemPrefab, Parent);
             pooledInstance.name = pooledItemPrefab.name;
             pooledInstance.gameObject.SetActive(true);
-            poolDictinary[key].Enqueue((T)pooledInstance);
+            //poolDictinary[key].Enqueue((T)pooledInstance);
+
+            return pooledInstance;
         }
 
         if (poolDictinary[key].TryDequeue(out var item))

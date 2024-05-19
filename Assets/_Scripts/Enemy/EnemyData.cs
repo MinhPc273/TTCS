@@ -34,9 +34,13 @@ public class EnemyData : EnemyAlbility
 
     public void GetDamage(float ATk, TurretAI.TurretType turretType)
     {
+        if(turretType == TurretAI.TurretType.Single)
+        {
+            _move.Run_Slow();
+        }
+
         CurHP -= ATk;
         HpEnemyUI hpEnemyUI = ObjectPooler.DequeueObject(HpEnemyUIPrefab.name, HpEnemyUIPrefab);
-        //HpEnemyUI hpEnemyUI = Instantiate(HpEnemyUIPrefab);
         hpEnemyUI.transform.position = HpEnemyTransform.position;
         hpEnemyUI.setValue(ATk, turretType);
         if(CurHP <= 0)
@@ -58,7 +62,7 @@ public class EnemyData : EnemyAlbility
         {
             WaveManager.Instance.KillEnemy();
         }
-        _enemyAnimController.PlayAnim(State.Die);
+        _enemyAnimController.PlayAnim(StateAnim.Die);
         isDead = true;
         StartCoroutine(Destoy());
     }
@@ -66,8 +70,9 @@ public class EnemyData : EnemyAlbility
     IEnumerator Destoy()
     {
         yield return new WaitForSecondsRealtime(0.5f);
-        ObjectPooler.EnqueueObject(this.GetComponent<Enemy>(), this.name);
-        Debug.Log(this.name);
+        CoinReward coinReward = ObjectPooler.DequeueObject(GUIManager.Instance.CoinRewardPrefab.name, GUIManager.Instance.CoinRewardPrefab, GUIManager.Instance.CoinRewardParent);
+        coinReward.setData(this.transform, CurrentEnemyStats.Coin); 
+        ObjectPooler.EnqueueObject(this.GetComponent<Enemy>(),WaveManager.Instance.EnemyParent, this.name);
         yield break;
     }
 }

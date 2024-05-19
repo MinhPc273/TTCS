@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour {
     public TurretAI.TurretType type = TurretAI.TurretType.Single;
     public Transform target;
     public bool lockOn;
-    //public bool track;
 
     public float Atk;
 
@@ -18,8 +17,6 @@ public class Projectile : MonoBehaviour {
 
     public float knockBack = 0.1f;
     public float boomTimer = 1;
-    //public Vector3 _startPosition;
-    //public float dist;
 
     public ParticleSystem explosion;
 
@@ -29,40 +26,22 @@ public class Projectile : MonoBehaviour {
         {
             lockOn = true;
         }
-
-        /*if (type == TurretAI.TurretType.Single)
-        {
-            Vector3 dir = target.position - transform.position;
-            transform.rotation = Quaternion.LookRotation(dir);
-        }*/
     }
 
     private void Update()
     {
-/*        if (target == null)
-        {
-            Explosion();
-            return;
-        }
 
-        if (transform.position.y < -0.2F)
-        {
-            Explosion();
-        }
+        if (type == TurretAI.TurretType.Single) return;
 
-        boomTimer -= Time.deltaTime;
-        if (boomTimer < 0)
+        if (!target.gameObject.activeSelf)
         {
-            Explosion();
-        }*/
+            Destroy(gameObject);
+        }
 
         if (type == TurretAI.TurretType.Catapult)
         {
             if (lockOn)
             {
-                /*Vector3 Vo = CalculateCatapult(target.transform.position, transform.position, 1);
-
-                transform.GetComponent<Rigidbody>().velocity = Vo;*/
 
                 this.transform.DOJump(target.transform.position, speed, 1, 0.3f);
                 lockOn = false;
@@ -74,27 +53,9 @@ public class Projectile : MonoBehaviour {
             Vector3 newDirection = Vector3.RotateTowards(-transform.forward, dir, Time.deltaTime * turnSpeed, 0.0f);
             Debug.DrawRay(transform.position, newDirection, Color.red);
 
-            //transform.Translate(dir.normalized * distThisFrame, Space.World);
-            //transform.LookAt(target);
-
             transform.Translate(-Vector3.forward * Time.deltaTime * speed);
             transform.rotation = Quaternion.LookRotation(-newDirection);
 
-        }else if (type == TurretAI.TurretType.Single)
-        {
-            /*float singleSpeed = speed * Time.deltaTime;
-            transform.Translate(-transform.forward * singleSpeed * 2);*/
-
-            Vector3 dir = target.position - transform.position;
-            //float distThisFrame = speed * Time.deltaTime;
-            Vector3 newDirection = Vector3.RotateTowards(-transform.forward, dir, Time.deltaTime * turnSpeed, 0.0f);
-            Debug.DrawRay(transform.position, newDirection, Color.red);
-
-            //transform.Translate(dir.normalized * distThisFrame, Space.World);
-            //transform.LookAt(target);
-
-            transform.Translate(-Vector3.forward * Time.deltaTime * speed);
-            transform.rotation = Quaternion.LookRotation(-newDirection);
         }
     }
 
@@ -119,26 +80,33 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" && other.transform == target && type != TurretAI.TurretType.Catapult)
+        if (other.tag == "Enemy" && other.transform == target && type == TurretAI.TurretType.Dual)
         {
-            /*Vector3 dir = other.transform.position - transform.position;
-            //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
-            Vector3 knockBackPos = other.transform.position + (dir.normalized * knockBack);
-            knockBackPos.y = 1;
-            other.transform.position = knockBackPos;*/
             Explosion(other.transform);
             other.transform.parent.GetComponent<EnemyData>().GetDamage(Atk, type);
         }
 
         if(other.tag == "Plane" && type == TurretAI.TurretType.Catapult)
         {
-            Explosion(this.transform);
+            Explosion(this.transform, Atk);
+        }
+
+        if (other.tag == "Enemy" && type == TurretAI.TurretType.Single)
+        {
+            other.transform.parent.GetComponent<EnemyData>().GetDamage(Atk, type);
         }
     }
 
     public void Explosion(Transform _transform)
     {
         Instantiate(explosion, _transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
+
+    public void Explosion(Transform _transform, float _Atk)
+    {
+        ParticleSystem p = Instantiate(explosion, _transform.position, transform.rotation);
+        p.GetComponentInChildren<NukeBoom>().Atk = _Atk;
         Destroy(gameObject);
     }
 }

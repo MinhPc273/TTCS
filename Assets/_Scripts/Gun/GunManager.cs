@@ -11,15 +11,24 @@ public class GunManager : MonoBehaviour
     [SerializeField] private List<Transform> ListGunPrefab;
     [SerializeField] private Transform PointSpawnParent;
     public Transform PoolParent;
+    public Transform EffLevelUp;
     [SerializeField] private List<PointSpawn> listPointSpawn = new();
+    [SerializeField] private List<PosGunUnlock> listPosGunUnlock = new();
     private int indexPoint;
 
+    Transform gunSpawn;
     private void Awake()
     {
         Instance = this;
         this.LoadPointSpawn();
         indexPoint = 0;
         SetUpPool();
+
+    }
+
+    private void Start()
+    {
+        SpawnGunUI();
     }
 
     private void LoadPointSpawn()
@@ -39,25 +48,29 @@ public class GunManager : MonoBehaviour
     }
 
 
+    public void SpawnGunUI()
+    {
+        Transform _gunSpawn = ListGunPrefab[(int)Random.Range(0, ListGunPrefab.Count)];
+        gunSpawn = ObjectPooler.DequeueObject<Transform>(_gunSpawn.name, _gunSpawn);
+        gunSpawn.gameObject.SetActive(false);
+        GUIManager.Instance.setGunUI(gunSpawn.GetComponent<Gun>().GunDataBase.Icon);
+    }
+
     public void SpawnGun()
     {
         indexPoint = IndexPoint();
-        if(indexPoint == -1)
+        if (indexPoint == -1)
         {
             //Debug.Log("Full");
             return;
         }
         PointSpawn pointSpawn = listPointSpawn[indexPoint];
-        //Transform gunSpawn =  Instantiate(GunPrefab, pointSpawn.transform.position, pointSpawn.transform.localRotation);
-
-        Transform _gunSpawn = ListGunPrefab[(int)Random.Range(0, ListGunPrefab.Count)];
-
-        Transform gunSpawn = ObjectPooler.DequeueObject<Transform>(_gunSpawn.name,_gunSpawn);
         gunSpawn.gameObject.SetActive(true);
         gunSpawn.SetParent(pointSpawn.transform);
         gunSpawn.localPosition = Vector3.zero;
         pointSpawn.Gun = gunSpawn;
         pointSpawn.SavePointData();
+        SpawnGunUI();
     }
 
     private int IndexPoint()
@@ -65,7 +78,7 @@ public class GunManager : MonoBehaviour
         int index = 0;
         foreach(PointSpawn t in listPointSpawn)
         {
-            if (t.Gun == null)
+            if (t.Gun == null && t.IsBuy)
             {
                 return index;
             }
@@ -74,9 +87,19 @@ public class GunManager : MonoBehaviour
         return -1;
     }
 
-    public Transform SpawnGunN(string key)
+    public void checkUnlock()
     {
-        //Transform _gunSpawn = ObjectPooler.DequeueObject<Transform>("Gun");
-        return ObjectPooler.DequeueObject<Transform>(key);
+        PointSpawn pointSpawn = listPosGunUnlock.Find(x => x.levelUnlock == Prefs.Level)?.PosGun;
+        if(pointSpawn != null)
+        {
+            pointSpawn.Unlock();
+        }
     }
+}
+
+[System.Serializable]
+public class PosGunUnlock
+{
+    public int levelUnlock;
+    public PointSpawn PosGun;
 }
