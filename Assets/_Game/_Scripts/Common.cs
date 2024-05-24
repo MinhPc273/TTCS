@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public static class Common
 {
-    public static bool CheckInputUI()
+    public static bool IsUI()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {

@@ -22,11 +22,13 @@ public class ButtonBuyPointSpawn : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Common.IsUI()) return;
         this.transform.DOScale(localScale * 1.1f, 0.2f);
     }
 
     private void OnMouseUpAsButton()
     {
+        if (Common.IsUI()) return;
         if (coin > Prefs.Coin) return;
         Prefs.Coin -= coin;
         pointBuy.Buy();
@@ -36,6 +38,7 @@ public class ButtonBuyPointSpawn : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (Common.IsUI()) return;
         this.transform.DOScale(localScale * 1f, 0.2f);
     }
 }

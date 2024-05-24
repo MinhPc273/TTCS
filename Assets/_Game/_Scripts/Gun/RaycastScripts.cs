@@ -26,7 +26,7 @@ public class RaycastScripts : MonoBehaviour
 
     void Update()
     {
-        if(Common.CheckInputUI())
+        if(Common.IsUI())
         {
             return;
         }  
