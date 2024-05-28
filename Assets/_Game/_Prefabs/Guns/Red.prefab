@@ -291,14 +291,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270454562333321606}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.31454748, y: 0, z: 0, w: 0.94924176}
   m_LocalPosition: {x: 0, y: -0.473, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6174593847033699940}
   m_Father: {fileID: 8227127226042051595}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 36.667, y: 0, z: 0}
 --- !u!114 &2330343909671156773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5452,8 +5452,7 @@ MonoBehaviour:
   turretType: 2
   muzzleMain: {fileID: 5131308530401317239}
   muzzleSub: {fileID: 3665402874087724007}
-  muzzleEff: {fileID: 1497772684437746, guid: bd75ef4ae186f454a90b2de71bed2854, type: 3}
-  bullet: {fileID: 1773485284122676, guid: 9e0d59e1858a95d4aafcfc9ef7e94671, type: 3}
+  bullet: {fileID: 114673051568919746, guid: 9e0d59e1858a95d4aafcfc9ef7e94671, type: 3}
 --- !u!1 &2948450544337771057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5627,7 +5626,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9062302184166450236, guid: 3aff938cf68c05947b60b7a00fbccfc9, type: 2}
+  - {fileID: 2100000, guid: cc8caa6413da17347bab12175be6de7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5672,7 +5671,7 @@ MonoBehaviour:
   m_text: Lv 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3aff938cf68c05947b60b7a00fbccfc9, type: 2}
-  m_sharedMaterial: {fileID: 9062302184166450236, guid: 3aff938cf68c05947b60b7a00fbccfc9, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: cc8caa6413da17347bab12175be6de7a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

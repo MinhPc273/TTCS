@@ -43,6 +43,7 @@ public class EnemyData : EnemyAlbility
         HpEnemyUI hpEnemyUI = ObjectPooler.DequeueObject(HpEnemyUIPrefab.name, HpEnemyUIPrefab);
         hpEnemyUI.transform.position = HpEnemyTransform.position;
         hpEnemyUI.setValue(ATk, turretType);
+        hpEnemyUI.gameObject.SetActive(true);
         if(CurHP <= 0)
         {
             CurHP = 0;
@@ -72,6 +73,7 @@ public class EnemyData : EnemyAlbility
         yield return new WaitForSecondsRealtime(0.5f);
         CoinReward coinReward = ObjectPooler.DequeueObject(GUIManager.Instance.CoinRewardPrefab.name, GUIManager.Instance.CoinRewardPrefab, GUIManager.Instance.CoinRewardParent);
         coinReward.setData(this.transform, CurrentEnemyStats.Coin); 
+        coinReward.gameObject.SetActive(true);
         ObjectPooler.EnqueueObject(this.GetComponent<Enemy>(),WaveManager.Instance.EnemyParent, this.name);
         yield break;
     }

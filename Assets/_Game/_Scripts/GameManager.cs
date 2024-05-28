@@ -39,19 +39,17 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         Prefs.Level++;
-        SlimeController.Instance.PlayAnim(StateAnim.Win);
         indexLose = 0;
         gunManager.checkUnlock();
         gui.LoadLevelUI();
+        //gui.Win();
     }
 
     public void Lose()
     {
         if (isLose) return;
-        WaveManager.Instance.DisableEnemyList();
         isLose = true;
         indexLose++;
-        SlimeController.Instance.PlayAnim(StateAnim.Die);
         if (Prefs.Level % 10 != 1 && indexLose >= 2)
         {
             Prefs.Level--;

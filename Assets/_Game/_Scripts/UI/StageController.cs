@@ -58,13 +58,6 @@ public class StageController : MonoBehaviour
         ListLvStageUI[Count - 1].transform.position = vector3;
         ListLvStageUI[Count - 1].SetValue(curLevel - 3);
 
-        for (int i = 0; i < Count - 1; i++)
-        {
-            LvStageUI tmp = ListLvStageUI[i];
-            ListLvStageUI[i] = ListLvStageUI[i + 1];
-            ListLvStageUI[i + 1] = tmp;
-        }
-
         for (int i = Count - 1; i > 0; i--)
         {
             LvStageUI tmp = ListLvStageUI[i];
@@ -81,7 +74,6 @@ public class StageController : MonoBehaviour
         vector3 = ListLvStageUI[Count - 1].transform.position;
         for (int i = Count - 1; i > 0; i--)
         {
-            Debug.Log(i);
             ListLvStageUI[i].transform.DOMove(ListLvStageUI[i-1].transform.position, 0.5f);
         }
         ListLvStageUI[0].transform.position = vector3;

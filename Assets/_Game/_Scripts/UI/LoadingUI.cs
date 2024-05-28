@@ -18,8 +18,10 @@ public class LoadingUI : MonoBehaviour
                 DOVirtual.DelayedCall(0.5f, () =>
                 {
                     this.gameObject.SetActive(false);
-                    GUIManager.Instance.EnableLSatgeUI();
-                    //GameManager.Instance.NewWave(1.5f);
+                    if(!TutorialManager.Instance.gameObject.activeInHierarchy)
+                    {
+                        GUIManager.Instance.EnableLSatgeUI();
+                    }
                 });
             });
         });

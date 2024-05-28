@@ -9,7 +9,9 @@ public class EnemyController : MonoBehaviour
         if(other.tag == "Player")
         {
             //this.transform.parent.GetComponent<Move>().Attack();
-            GameManager.Instance.Lose();
+            GUIManager.Instance.Lose();
+            WaveManager.Instance.DisableEnemyList();
+
         }
     }
 }

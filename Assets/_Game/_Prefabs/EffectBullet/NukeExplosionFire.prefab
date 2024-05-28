@@ -24184,6 +24184,7 @@ GameObject:
   - component: {fileID: 1403378437391024413}
   - component: {fileID: 964479592100191231}
   - component: {fileID: 6415261592456393440}
+  - component: {fileID: 7886616544063749487}
   m_Layer: 6
   m_Name: NukeExplosionFire
   m_TagString: Untagged
@@ -29014,7 +29015,7 @@ AudioSource:
   m_GameObject: {fileID: 6830837875550960995}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7408244447988060778, guid: 2cb567bd514c3984fbe2997c0e1309c9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 92d3259b6a9732e4ba3fb95331b2c95d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.85
@@ -29113,3 +29114,15 @@ SortingGroup:
   m_SortingLayer: 3
   m_SortingOrder: 99
   m_SortAtRoot: 0
+--- !u!114 &7886616544063749487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830837875550960995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54082690e53da2049bf67717e533586e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

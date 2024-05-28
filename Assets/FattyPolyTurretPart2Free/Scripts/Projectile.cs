@@ -18,9 +18,9 @@ public class Projectile : MonoBehaviour {
     public float knockBack = 0.1f;
     public float boomTimer = 1;
 
-    public ParticleSystem explosion;
+    public VFXPool explosion;
 
-    private void Start()
+    private void OnEnable()
     {
         if (catapult)
         {
@@ -45,7 +45,8 @@ public class Projectile : MonoBehaviour {
         {
             if (!target.gameObject.activeInHierarchy)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                ObjectPooler.EnqueueObject<Projectile>(this, this.name);
             }
             Vector3 dir = target.position - transform.position;
             //float distThisFrame = speed * Time.deltaTime;
@@ -98,13 +99,15 @@ public class Projectile : MonoBehaviour {
 
     public void Explosion(Transform _transform)
     {
-        Instantiate(explosion, _transform.position, transform.rotation);
-        Destroy(gameObject);
+        VFXPool vfx = ObjectPooler.DequeueObject(explosion.name, explosion);
+        vfx.transform.SetPositionAndRotation(_transform.position, transform.rotation);
+        vfx.gameObject.SetActive(true);
+        ObjectPooler.EnqueueObject<Projectile>(this, this.name);
     }
 
     public void Explosion(Transform _transform, float _Atk)
     {
-        ParticleSystem p = Instantiate(explosion, _transform.position, transform.rotation);
+        VFXPool p = Instantiate(explosion, _transform.position, transform.rotation);
         p.GetComponentInChildren<NukeBoom>().Atk = _Atk;
         Destroy(gameObject);
     }

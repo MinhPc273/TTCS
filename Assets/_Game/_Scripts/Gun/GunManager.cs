@@ -11,7 +11,7 @@ public class GunManager : MonoBehaviour
     [SerializeField] private List<Transform> ListGunPrefab;
     [SerializeField] private Transform PointSpawnParent;
     public Transform PoolParent;
-    public Transform EffLevelUp;
+    public VFXPool EffLevelUp;
     [SerializeField] private List<PointSpawn> listPointSpawn = new();
 
     [SerializeField] private List<PosGunUnlock> listPosGunUnlock = new();
@@ -84,6 +84,7 @@ public class GunManager : MonoBehaviour
         gunSpawn.gameObject.SetActive(true);
         gunSpawn.SetParent(pointSpawn.transform);
         gunSpawn.localPosition = Vector3.zero;
+        gunSpawn.GetComponent<GunData>().setData(Prefs.LvGunSpawn);
         gunSpawn.GetComponent<GunData>().turretAI.EndSlected(pointSpawn.CanFire);
         pointSpawn.Gun = gunSpawn;
         pointSpawn.SavePointData();

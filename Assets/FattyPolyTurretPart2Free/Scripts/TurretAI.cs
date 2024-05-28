@@ -33,8 +33,8 @@ public class TurretAI : MonoBehaviour {
     
     public Transform muzzleMain;
     public Transform muzzleSub;
-    public GameObject muzzleEff;
-    public GameObject bullet;
+    /*public GameObject muzzleEff;*/
+    public Projectile bullet;
     private bool shootLeft = true;
 
     private Transform lockOnPos;
@@ -188,32 +188,40 @@ public class TurretAI : MonoBehaviour {
         {
             lockOnPos = go.transform;
 
-            Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.localRotation);
-            GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
-            Projectile projectile = missleGo.GetComponent<Projectile>();
-            projectile.type = TurretType.Catapult;
-            projectile.target = lockOnPos;
-            projectile.Atk = attackDamage;
+            //Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.localRotation);
+            //GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
+            Projectile missleGo = ObjectPooler.DequeueObject(bullet.name, bullet);
+            missleGo.transform.SetPositionAndRotation(muzzleMain.transform.position, muzzleMain.localRotation);
+            //Projectile projectile = missleGo.GetComponent<Projectile>();
+            missleGo.type = TurretType.Catapult;
+            missleGo.target = lockOnPos;
+            missleGo.Atk = attackDamage;
+            missleGo.gameObject.SetActive(true);
         }
         else if(turretType == TurretType.Dual)
         {
             if (shootLeft)
             {
-                Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.localRotation);
-                GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
-                Projectile projectile = missleGo.GetComponent<Projectile>();
-                projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
-                projectile.type = TurretType.Dual;
-                projectile.Atk = attackDamage/2;
+                //Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.localRotation);
+                //GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.localRotation);
+                Projectile missleGo = ObjectPooler.DequeueObject(bullet.name, bullet);
+                missleGo.transform.SetPositionAndRotation(muzzleMain.transform.position, muzzleMain.localRotation);
+                //Projectile projectile = missleGo.GetComponent<Projectile>();
+                missleGo.target = transform.GetComponent<TurretAI>().currentTarget.transform;
+                missleGo.type = TurretType.Dual;
+                missleGo.Atk = attackDamage/2;
+                missleGo.gameObject.SetActive(true);
             }
             else
             {
-                Instantiate(muzzleEff, muzzleSub.transform.position, muzzleSub.localRotation);
-                GameObject missleGo = Instantiate(bullet, muzzleSub.transform.position, muzzleSub.localRotation);
+                //Instantiate(muzzleEff, muzzleSub.transform.position, muzzleSub.localRotation);
+                Projectile missleGo = ObjectPooler.DequeueObject(bullet.name, bullet);
+                missleGo.transform.SetPositionAndRotation(muzzleSub.transform.position, muzzleSub.localRotation);
                 Projectile projectile = missleGo.GetComponent<Projectile>();
-                projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
-                projectile.type = TurretType.Dual;
-                projectile.Atk = attackDamage/2;
+                missleGo.target = transform.GetComponent<TurretAI>().currentTarget.transform;
+                missleGo.type = TurretType.Dual;
+                missleGo.Atk = attackDamage/2;
+                missleGo.gameObject.SetActive(true);
             }
 
             shootLeft = !shootLeft;
@@ -223,7 +231,7 @@ public class TurretAI : MonoBehaviour {
             Projectile projectile = bullet.GetComponent<Projectile>();
             projectile.type = TurretType.Single;
             projectile.Atk = attackDamage;
-            bullet.SetActive(true);
+            bullet.gameObject.SetActive(true);
         }
     }
 }

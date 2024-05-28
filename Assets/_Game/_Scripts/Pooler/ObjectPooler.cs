@@ -8,7 +8,6 @@ public static class ObjectPooler
     public static Dictionary<string, Component> poolLookup = new Dictionary<string, Component>();
     public static Dictionary<string, Queue<Component>> poolDictinary = new Dictionary<string, Queue<Component>>();
 
-
     //Put in Pool
     public static void EnqueueObject<T>(T item, Transform PoolParent, string name) where T : Component
     {
@@ -22,9 +21,7 @@ public static class ObjectPooler
 
     public static void EnqueueObject<T>(T item, string key) where T : Component
     {
-        //if (!item.gameObject.activeSelf) return;
-
-        //item.transform.SetParent(PoolParent);
+        if (!poolDictinary.ContainsKey(key)) return;
         item.transform.position = Vector3.zero;
         item.gameObject.SetActive(false);
         poolDictinary[key].Enqueue(item);
@@ -49,7 +46,7 @@ public static class ObjectPooler
 
         if (poolDictinary[key].TryDequeue(out var item))
         {
-            item.gameObject.SetActive(true);
+            //item.gameObject.SetActive(true);
             return (T)item;
         }
 
@@ -60,7 +57,7 @@ public static class ObjectPooler
         T newInstance = Object.Instantiate(item, Parent);
         newInstance.name = item.name;
         newInstance.transform.position = Vector3.zero;
-        newInstance.gameObject.SetActive(true);
+        //newInstance.gameObject.SetActive(true);
         return newInstance;
     }
 

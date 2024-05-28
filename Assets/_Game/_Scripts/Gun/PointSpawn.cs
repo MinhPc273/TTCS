@@ -114,7 +114,15 @@ public class PointSpawn : MonoBehaviour
                     PointSwap.Gun.gameObject.SetActive(true);
                     PointSwap.Gun.GetComponent<GunData>().setData(nextLevel);
                     PointSwap.Gun.GetComponent<GunData>().turretAI.EndSlected(PointSwap.CanFire);
-                    Instantiate(GunManager.Instance.EffLevelUp, PointSwap.transform.position, GunManager.Instance.EffLevelUp.rotation);
+                    //Instantiate(GunManager.Instance.EffLevelUp, PointSwap.transform.position, GunManager.Instance.EffLevelUp.rotation);
+                    VFXPool vfx = ObjectPooler.DequeueObject(GunManager.Instance.EffLevelUp.name, GunManager.Instance.EffLevelUp);
+                    vfx.transform.SetPositionAndRotation(PointSwap.transform.position, GunManager.Instance.EffLevelUp.transform.rotation);
+                    vfx.gameObject.SetActive(true);
+
+                    if(TutorialManager.Instance.gameObject.activeInHierarchy)
+                    {
+                        TutorialManager.Instance.Step3(PointSwap.Gun);
+                    }
 
                 }
                 else

@@ -69,6 +69,7 @@ public class WaveManager : MonoBehaviour
         Enemy enemy = ObjectPooler.DequeueObject<Enemy>(EnemyPrefab.name, EnemyPrefab, enemyParent);
         enemy.EnemyDataBase.stats.getValueByLevel(Level);
         enemy.sortingLayer.sortingOrder = -index;
+        enemy.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeSawn);
         if(++index == AmountEnemyInWave)
         {
@@ -85,6 +86,7 @@ public class WaveManager : MonoBehaviour
         Enemy WillBoss = getBoss();
         Enemy boss = ObjectPooler.DequeueObject<Enemy>(WillBoss.name, WillBoss, enemyParent);
         boss.EnemyDataBase.stats.getValueBossByLevel(Level);
+        boss.gameObject.SetActive(true);
         yield break;
     }
 
@@ -106,13 +108,13 @@ public class WaveManager : MonoBehaviour
         enemyExits--;
         if(enemyExits == 0)
         {
-            GameManager.Instance.Win();
+            GUIManager.Instance.Win();
         }
     }
 
     public void KillBoss()
     {
-        GameManager.Instance.Win();
+        GUIManager.Instance.Win();
     }
 
     public void DisableEnemyList()

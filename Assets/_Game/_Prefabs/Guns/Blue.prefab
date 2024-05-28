@@ -143,8 +143,7 @@ MonoBehaviour:
   turretType: 1
   muzzleMain: {fileID: 2158128446558160856}
   muzzleSub: {fileID: 0}
-  muzzleEff: {fileID: 1497772684437746, guid: bd75ef4ae186f454a90b2de71bed2854, type: 3}
-  bullet: {fileID: 2154555584560549642}
+  bullet: {fileID: 2625551946629277876}
 --- !u!1 &2154229417136099950
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,7 +5116,7 @@ AudioSource:
   m_GameObject: {fileID: 2154555584560549642}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7408244447988060778, guid: 2cb567bd514c3984fbe2997c0e1309c9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8b3848d6900879843a1ffd2a0ce93090, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5493,7 +5492,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9062302184166450236, guid: 3aff938cf68c05947b60b7a00fbccfc9, type: 2}
+  - {fileID: 2100000, guid: cc8caa6413da17347bab12175be6de7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5538,7 +5537,7 @@ MonoBehaviour:
   m_text: Lv 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3aff938cf68c05947b60b7a00fbccfc9, type: 2}
-  m_sharedMaterial: {fileID: 9062302184166450236, guid: 3aff938cf68c05947b60b7a00fbccfc9, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: cc8caa6413da17347bab12175be6de7a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5783,14 +5782,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8793714041395920973}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.31454748, y: 0, z: 0, w: 0.94924176}
   m_LocalPosition: {x: 0, y: -0.473, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8239768353962807941}
   m_Father: {fileID: 7552595386472875660}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 36.667, y: 0, z: 0}
 --- !u!114 &6834967986481650197
 MonoBehaviour:
   m_ObjectHideFlags: 0

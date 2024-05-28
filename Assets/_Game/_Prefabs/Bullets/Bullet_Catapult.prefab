@@ -5001,7 +5001,7 @@ MonoBehaviour:
   catapult: 1
   knockBack: 1.5
   boomTimer: 10
-  explosion: {fileID: 6895437922956918385, guid: 2799ec4ac3b6623418afa82b689654f3, type: 3}
+  explosion: {fileID: 7886616544063749487, guid: 2799ec4ac3b6623418afa82b689654f3, type: 3}
 --- !u!54 &54987683344845492
 Rigidbody:
   m_ObjectHideFlags: 0

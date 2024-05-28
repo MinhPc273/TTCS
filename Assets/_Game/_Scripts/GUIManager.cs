@@ -15,6 +15,9 @@ public class GUIManager : MonoBehaviour
     [SerializeField] Image imgGunSpawn;
     [SerializeField] TextMeshProUGUI txtCoin;
     [SerializeField] TextMeshProUGUI txtCoinRequired;
+    [SerializeField] TextMeshProUGUI txtLvGun;
+
+    public TextMeshProUGUI TxtLvGun => txtLvGun;
 
     [SerializeField] StageController stageController;
     [SerializeField] GameObject pnanelNextStage;
@@ -30,11 +33,14 @@ public class GUIManager : MonoBehaviour
 
     private bool stateCoinTarget;
 
+    [SerializeField] private ResultUI ResultUI;
+
     private void Awake()
     {
         Instance = this;
         this.SetUI();
         stateCoinTarget = false;
+        txtLvGun.text = "Lv." + Prefs.LvGunSpawn;
     }
 
 
@@ -55,6 +61,41 @@ public class GUIManager : MonoBehaviour
         Prefs.Coin -= Prefs.CoinRequired;
         GameManager.Instance.SpawnGun();
         SetUI();
+
+        if(TutorialManager.Instance.gameObject.activeInHierarchy)
+        {
+            TutorialManager.Instance.Step1();
+        }
+    }
+
+    public void Win()
+    {
+        SlimeController.Instance.PlayAnim(StateAnim.Win);
+        if (Prefs.Level % 10 == 0)
+        {
+            ResultUI.Boss.gameObject.SetActive(true);
+            ResultUI.Boss.Win();
+        }
+        else
+        {
+            ResultUI.Enemy.gameObject.SetActive(true);
+            ResultUI.Enemy.Win();
+        }
+    }
+
+    public void Lose()
+    {
+        SlimeController.Instance.PlayAnim(StateAnim.Die);
+        if (Prefs.Level % 10 == 0)
+        {
+            ResultUI.Boss.gameObject.SetActive(true);
+            ResultUI.Boss.Lose();
+        }
+        else
+        {
+            ResultUI.Enemy.gameObject.SetActive(true);
+            ResultUI.Enemy.Lose();
+        }
     }
 
     public void LoadLevelUI()
