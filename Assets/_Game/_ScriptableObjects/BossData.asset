@@ -17,5 +17,4 @@ MonoBehaviour:
     HP: 100
     Speed: 1
     Coin: 5
-    CoinDel: 3
   isBoss: 1

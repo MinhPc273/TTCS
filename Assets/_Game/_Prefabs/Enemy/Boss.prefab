@@ -30,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 837911868, guid: 7c030374de22a3d41b8ad7f556279997, type: 3}
     - target: {fileID: 4734121708372666777, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.12
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4734121708372666777, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.12
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4734121708372666777, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.12
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 5212262038868663532, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_IsActive
@@ -155,6 +155,14 @@ PrefabInstance:
     - target: {fileID: 6936687505882645760, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026891446577076052, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026891446577076052, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.146
       objectReference: {fileID: 0}
     - target: {fileID: 7721571496520330941, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: isWASD

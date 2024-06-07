@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,10 +9,6 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour
 {
     public static GUIManager Instance;
-
-    private int coin;
-    private int coinRequired;
-
     [SerializeField] Image imgGunSpawn;
     [SerializeField] TextMeshProUGUI txtCoin;
     [SerializeField] TextMeshProUGUI txtCoinRequired;
@@ -34,6 +31,9 @@ public class GUIManager : MonoBehaviour
     private bool stateCoinTarget;
 
     [SerializeField] private ResultUI ResultUI;
+
+    [SerializeField] private GameObject btnTap;
+    [SerializeField] private GameObject btnSell;
 
     private void Awake()
     {
@@ -121,4 +121,28 @@ public class GUIManager : MonoBehaviour
             });
         }
     }
+
+    public void OnSell(int GunLv = 0) {
+        if (btnSell.activeInHierarchy)
+        {
+            btnTap.SetActive(true);
+            btnSell.SetActive(false);
+        }
+        else
+        {
+            if(GunLv != 0) {
+                if(GunLv > Prefs.LvGunSpawn) {
+                    btnSell.GetComponent<ButtonSell>().Coin = (int)(Prefs.CoinRequired * Mathf.Pow(1.5f, GunLv - Prefs.LvGunSpawn));
+                }
+                else {
+                    btnSell.GetComponent<ButtonSell>().Coin = (int)(Prefs.CoinRequired * 0.8f * Mathf.Pow(0.5f, Prefs.LvGunSpawn - GunLv));
+                }
+            }
+            btnSell.SetActive(true);
+            btnTap.SetActive(false);
+        }
+    }
+    
+    public void Sell() {
+        btnSell.GetComponent<ButtonSell>().Sell();}
 }

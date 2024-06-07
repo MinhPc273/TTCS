@@ -17,7 +17,7 @@ public class ButtonBuyPointSpawn : MonoBehaviour
     private void Awake()
     {
         localScale = transform.localScale;
-        txtCoin.text = coin.ToString();
+        //txtCoin.text = coin.ToString();
     }
 
     private void OnMouseDown()

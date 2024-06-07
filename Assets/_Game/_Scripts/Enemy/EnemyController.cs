@@ -9,9 +9,9 @@ public class EnemyController : MonoBehaviour
         if(other.tag == "Player")
         {
             //this.transform.parent.GetComponent<Move>().Attack();
+            this.transform.parent.GetComponent<EnemyData>().Disable();
             GUIManager.Instance.Lose();
             WaveManager.Instance.DisableEnemyList();
-
         }
     }
 }

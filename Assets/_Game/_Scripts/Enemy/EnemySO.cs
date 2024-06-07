@@ -27,14 +27,14 @@ public class BaseEnemyStats
 
     public BaseEnemyStats getValueByLevel(int Level)
     {
-        float hp = this.HP * Mathf.Pow(1.4f, Level -1);
+        float hp = this.HP * Mathf.Pow(1.3f, Level -1);
         int coin = (int)(this.Coin * Mathf.Pow(1.2f, Level - 1));
         return new BaseEnemyStats(hp, this.Speed, coin);
     }
 
     public BaseEnemyStats getValueBossByLevel(int Level)
     {
-        float hp = this.HP * Mathf.Pow(4f, Level - 1);
+        float hp = this.HP * Mathf.Pow(4.5f, Level - 1);
         int coin = (int)(this.Coin * Mathf.Pow(3f, Level - 1));
         return new BaseEnemyStats(hp, this.Speed, coin);
     }

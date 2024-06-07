@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +11,8 @@ public class RaycastScripts : MonoBehaviour
     [SerializeField]private Camera Camera;
     public LayerMask _gunMask;
     public LayerMask _placeMask;
+
+    public LayerMask _sellMask;
     private Vector3 mousePosition;
     private RaycastHit hit;
 
@@ -17,6 +21,11 @@ public class RaycastScripts : MonoBehaviour
 
     private Vector3 startMousePos;
     private Vector3 startGunPos;
+
+    private bool onSell = false;
+    private Tween tweenOnSell;
+
+    private Transform sell;
 
     private void Awake()
     {
@@ -64,6 +73,20 @@ public class RaycastScripts : MonoBehaviour
         return Vector3.zero;
     }
 
+    private Transform RayCastSell()
+    {
+        mousePosition = Camera.ScreenToWorldPoint(Input.mousePosition);
+        Ray ray = new Ray(mousePosition, Vector3.forward);
+        RaycastHit raycastHit;
+        if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, _sellMask, QueryTriggerInteraction.Collide))
+        {
+            //Debug.DrawRay(mousePosition, Vector3.forward * hit.distance, Color.yellow);
+            //Debug.Log(hit.point);
+            return raycastHit.transform;
+        }
+        return null;
+    }
+
     private void MoveGun()
     {
         if (Input.GetMouseButtonDown(0))
@@ -73,6 +96,7 @@ public class RaycastScripts : MonoBehaviour
                 PosSelected = RayCastPos();
                 PosSelected.GetComponent<PointSpawn>().StartSelected();
                 canMove = true;
+                GUIManager.Instance.OnSell(PosSelected.GetComponent<PointSpawn>().GunData.Level);
             }
         }
         else if (Input.GetMouseButtonUp(0))
@@ -80,7 +104,16 @@ public class RaycastScripts : MonoBehaviour
             canMove = false;
             if(PosSelected != null)
             {
-                PosSelected.GetComponent<PointSpawn>().EndSelected();
+                if(sell != null)
+                {
+                    PosSelected.GetComponent<PointSpawn>().Sell();
+                    GUIManager.Instance.Sell();
+                }
+                else {
+                    PosSelected.GetComponent<PointSpawn>().EndSelected();
+                }
+                GUIManager.Instance.OnSell();
+                PosSelected = null;
             }
         }
 
@@ -90,6 +123,26 @@ public class RaycastScripts : MonoBehaviour
             {
                 PosSelected.transform.position = RayCastPlane();
             }
+            if(RayCastSell() != null)
+            {
+                if(onSell) return;
+                onSell = true;
+                OnSellAnim();
+            }
+            else {
+                if(!onSell) return;
+                onSell = false;
+                sell.localScale = Vector3.one;
+                sell = null;
+                tweenOnSell.Kill();
+            }
         }
+    }
+
+    private void OnSellAnim() 
+    {
+        sell = RayCastSell();
+        sell.localScale = Vector3.one;
+        tweenOnSell = sell.transform.DOScale(Vector3.one * 1.1f, 0.6f).SetEase(Ease.OutQuad).SetLoops(-1, LoopType.Yoyo);
     }
 }

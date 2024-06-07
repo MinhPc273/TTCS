@@ -152,7 +152,16 @@ public class PointSpawn : MonoBehaviour
         this.transform.position = curPos;
         this.Gun?.GetComponent<GunData>().turretAI.EndSlected(this.canFire);
         SavePointData();
+    }
 
+    public void Sell() {
+        if (Gun != null)
+        {
+            ObjectPooler.EnqueueObject(Gun, GunManager.Instance.PoolParent, Gun.name);
+            Gun = null;
+        }
+        this.transform.position = curPos;
+        SavePointData();
     }
 
 
