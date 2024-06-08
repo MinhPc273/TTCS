@@ -16,14 +16,26 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 539000899
       objectReference: {fileID: 0}
+    - target: {fileID: 1238437620591756317, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1525490924594773970, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525490924594773970, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1608977376786811367, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -493647738, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+    - target: {fileID: 1728013226244994976, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1903424228081278448, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: sortingLayer
       value: 
@@ -32,9 +44,29 @@ PrefabInstance:
       propertyPath: enemyDataBase
       value: 
       objectReference: {fileID: 11400000, guid: 02267953a28a05642b29dfcefd7b81b3, type: 2}
+    - target: {fileID: 2252471030437084677, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278987516465881692, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487426606941379294, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904443758176981989, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5212262038868663532, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212262038868663532, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5387970788535137797, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_AnchorMax.x
@@ -42,6 +74,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5387970788535137797, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5414527130074774265, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5483554486059783136, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
@@ -148,8 +184,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7434195213768119762, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7721571496520330941, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
       propertyPath: isWASD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893351041318955049, guid: e1d75ad68476f8a429cee3a7fe6ba859, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

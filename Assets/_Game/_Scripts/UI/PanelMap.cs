@@ -5,10 +5,10 @@ using UnityEngine;
 public class PanelMap : MonoBehaviour
 {
     private void OnEnable() {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     private void OnDisable() {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 }

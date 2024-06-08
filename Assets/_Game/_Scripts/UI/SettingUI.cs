@@ -12,11 +12,11 @@ public class SettingUI : MonoBehaviour
     {
         _sliderMusic.value = Prefs.VolumeMusic;
         _sliderSFX.value = Prefs.SFXMusic;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     private void OnDisable()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 }

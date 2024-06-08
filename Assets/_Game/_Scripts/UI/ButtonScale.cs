@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ButtonScale : Button
 {
-    ButtonScaleType scaleType = ButtonScaleType.ZoomIn;
+    //ButtonScaleType scaleType = ButtonScaleType.ZoomIn;
 
     bool isPressed = false;
 
@@ -15,11 +15,11 @@ public class ButtonScale : Button
 
     float zoomSpeed = 0.5f;
 
-    private enum ButtonScaleType
-    {
-        ZoomIn,
-        ZoomOut
-    }
+    // private enum ButtonScaleType
+    // {
+    //     ZoomIn,
+    //     ZoomOut
+    // }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
